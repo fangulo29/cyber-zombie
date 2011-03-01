@@ -1,0 +1,9 @@
+C:\Documents and Settings\Pepe\Mis documentos\Visual Studio 2010\Projects\CZServer\CZServer\bin\Release\CZServer.exe
+C:\Documents and Settings\Pepe\Mis documentos\Visual Studio 2010\Projects\CZServer\CZServer\bin\Release\CZServer.pdb
+C:\Documents and Settings\Pepe\Mis documentos\Visual Studio 2010\Projects\CZServer\CZServer\obj\x86\Release\ResolveAssemblyReference.cache
+C:\Documents and Settings\Pepe\Mis documentos\Visual Studio 2010\Projects\CZServer\CZServer\obj\x86\Release\CZServer.Form1.resources
+C:\Documents and Settings\Pepe\Mis documentos\Visual Studio 2010\Projects\CZServer\CZServer\obj\x86\Release\CZServer.Properties.Resources.resources
+C:\Documents and Settings\Pepe\Mis documentos\Visual Studio 2010\Projects\CZServer\CZServer\obj\x86\Release\GenerateResource.read.1.tlog
+C:\Documents and Settings\Pepe\Mis documentos\Visual Studio 2010\Projects\CZServer\CZServer\obj\x86\Release\GenerateResource.write.1.tlog
+C:\Documents and Settings\Pepe\Mis documentos\Visual Studio 2010\Projects\CZServer\CZServer\obj\x86\Release\CZServer.exe
+C:\Documents and Settings\Pepe\Mis documentos\Visual Studio 2010\Projects\CZServer\CZServer\obj\x86\Release\CZServer.pdb
