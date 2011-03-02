@@ -138,8 +138,8 @@ namespace CZServer
 		public string IP_EQUIPO;
 		public string NOMBRE_EQUIPO;
 		public string CARACTERISTICAS_EQUIPO;
-		private List<Equipo> lstEquipos;
-		private Eqipos objEquipos; 
+		private List<Equipos> lstEquipos;
+		private Equipos objEquipos; 
 		#endregion
 		#region "Métodos"
 		public bool Insertar()
@@ -183,7 +183,7 @@ namespace CZServer
 		}
 		public List<Equipos> Mostrar()
 		{
-			lstEquipos = new List<Equipo>();
+			lstEquipos = new List<Equipos>();
 			objEquipos = new Equipos();
 			strConsulta = "CALL Buscar_Equipos();";
 			Conexion.Open();
@@ -228,7 +228,81 @@ namespace CZServer
 		private Sesiones objSesiones;
 		#endregion
 		#region "Métodos"
-		#endregion		
+		public bool Insertar()
+		{
+			strConsulta= "CALL Ins_Sesion("+ID_EQUIPO+",'"+FECHA_SESION+"','"+HORA_INICIO+"','"+HORA_FIN+"',"+TOTAL_SESION+","+TOTAL_SESIONIMP+","+TOTAL+");";
+			return Ejecuta();
+		}
+		public bool Actualizar()
+		{			
+			strConsulta= "CALL Act_Sesion("+ID_SESION+","+ID_EQUIPO+",'"+FECHA_SESION+"','"+HORA_INICIO+"','"+HORA_FIN+"',"+TOTAL_SESION+","+TOTAL_SESIONIMP+","+TOTAL+");";
+			return Ejecuta();
+		}
+		public bool Eliminar(int ID)
+		{
+			strConsulta = "CALL Eli_Sesion("+ID+");";
+			return Ejecuta();
+		}
+		public void Buscar(int ID)
+		{
+			strConsulta = "CALL Buscar_Sesion("+ID+");";
+			Conexion.Open();
+			try
+			{
+				Comando = new MySqlCommand(strConsulta, Conexion);
+				Lector = Comando.ExecuteReader();
+				while (Lector.Read())
+				{
+					ID_SESION = int.Parse(Lector[0].ToString());
+					ID_EQUIPO = int.Parse(Lector[1].ToString());
+					FECHA_SESION = Lector[2].ToString();
+					HORA_INICIO = Lector[3].ToString();
+					HORA_FIN = Lector[4].ToString();
+					TOTAL_SESION = decimal.Parse(Lector[5].ToString());
+					TOTAL_SESIONIMP = decimal.Parse(Lector[6].ToString());
+					TOTAL = decimal.Parse(Lector[7].ToString());
+				}
+				Conexion.Close();
+			}
+			catch(MySqlException e)
+			{
+				MessageBox.Show("Error al realizar operación.\\n" + e.Number + "\\n" + e.Message + "\\n" + e.Source);
+				if (Conexion.State == System.Data.ConnectionState.Open) Conexion.Close();
+			}
+		}
+		public List<Sesiones> Mostrar()
+		{
+			lstSesiones = new List<Sesiones>();
+			objSesiones = new Sesiones();
+			strConsulta = "CALL Buscar_Sesiones();";
+			Conexion.Open();
+			try
+			{
+				Comando = new MySqlCommand(strConsulta, Conexion);
+				Lector = Comando.ExecuteReader();
+				while (Lector.Read())
+				{
+					objSesiones.ID_SESION = int.Parse(Lector[0].ToString());
+					objSesiones.ID_EQUIPO = int.Parse(Lector[1].ToString());
+					objSesiones.FECHA_SESION = Lector[2].ToString();
+					objSesiones.HORA_INICIO = Lector[3].ToString();
+					objSesiones.HORA_FIN = Lector[4].ToString();
+					objSesiones.TOTAL_SESION = decimal.Parse(Lector[5].ToString());
+					objSesiones.TOTAL_SESIONIMP = decimal.Parse(Lector[6].ToString());
+					objSesiones.TOTAL = decimal.Parse(Lector[7].ToString());
+					lstSesiones.Add(objSesiones);
+					objSesiones = new Sesiones();
+				}
+				Conexion.Close();
+			}
+			catch(MySqlException e)
+			{
+				MessageBox.Show("Error al realizar operación.\\n" + e.Number + "\\n" + e.Message + "\\n" + e.Source);
+				if (Conexion.State == System.Data.ConnectionState.Open) Conexion.Close();
+			}
+			return lstSesiones;
+		}
+		#endregion
 	}
 	
 	public class SesionesImp:BDEngine
@@ -239,8 +313,48 @@ namespace CZServer
 		public int NO_IMPRESIONES;
 		public decimal PRECIO_UNITARIO;
 		public decimal TOTAL_PRECIO;
+		private List<SesionesImp> lstSesionImp;
+		private SesionesImp objSesionImp;
 		#endregion
 		#region "Métodos"
+		public bool Insertar()
+		{
+			strConsulta = "CALL Ins_SesionImp("+ID_EQUIPO+","+ID_SESION+","+NO_IMPRESIONES+","+PRECIO_UNITARIO+","+TOTAL_PRECIO+");";
+			return Ejecuta();
+		}
+		public bool Eliminar(int Sesion)
+		{
+			strConsulta = "CALL Eli_SesionImp("+Sesion+");";
+			return Ejecuta();
+		}
+		public List<SesionesImp> Mostrar(int Sesion)
+		{
+			lstSesionImp = new List<SesionesImp>();
+			objSesionImp = new SesionesImp();
+			strConsulta="CALL Buscar_SesionesImp()";
+			Conexion.Open();
+			try
+			{
+				Comando = new MySqlCommand(strConsulta, Conexion);
+				Lector = Comando.ExecuteReader();
+				while (Lector.Read())
+				{
+					objSesionImp.ID_EQUIPO = int.Parse(Lector[0].ToString());
+					objSesionImp.ID_SESION = int.Parse(Lector[1].ToString());
+					objSesionImp.NO_IMPRESIONES = int.Parse(Lector[2].ToString());
+					objSesionImp.PRECIO_UNITARIO = decimal.Parse(Lector[3].ToString());
+					objSesionImp.TOTAL_PRECIO = decimal.Parse(Lector[4].ToString());
+					lstSesionImp.Add(objSesionImp);
+					objSesionImp = new SesionesImp();
+				}
+			}
+			catch(MySqlException e)
+			{
+				MessageBox.Show("Error al realizar operación.\\n" + e.Number + "\\n" + e.Message + "\\n" + e.Source);
+				if (Conexion.State == System.Data.ConnectionState.Open) Conexion.Close();
+			}
+			return lstSesionImp;
+		}
 		#endregion		
 	}
 }
