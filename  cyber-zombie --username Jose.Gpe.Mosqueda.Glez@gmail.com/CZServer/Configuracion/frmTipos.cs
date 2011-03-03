@@ -15,7 +15,7 @@ namespace CZServer.Configuracion
 	/// <summary>
 	/// Description of frmTipos.
 	/// </summary>
-	public partial class frmTipos : Form
+	public partial class frmTipos : frmBase
 	{
 		public frmTipos()
 		{
