@@ -87,8 +87,7 @@ namespace CZServer
 			this.cmdGuardar.Size = new System.Drawing.Size(35, 35);
 			this.cmdGuardar.TabIndex = 3;
 			this.cmdGuardar.Text = "Guardar";
-			this.cmdGuardar.UseVisualStyleBackColor = true;
-			this.cmdGuardar.Click += new System.EventHandler(this.CmdGuardarClick);
+			this.cmdGuardar.UseVisualStyleBackColor = true;			
 			// 
 			// cmdEliminar
 			// 
@@ -98,8 +97,7 @@ namespace CZServer
 			this.cmdEliminar.Size = new System.Drawing.Size(35, 35);
 			this.cmdEliminar.TabIndex = 4;
 			this.cmdEliminar.Text = "Eliminar";
-			this.cmdEliminar.UseVisualStyleBackColor = true;
-			this.cmdEliminar.Click += new System.EventHandler(this.CmdEliminarClick);
+			this.cmdEliminar.UseVisualStyleBackColor = true;			
 			// 
 			// cmdCancelar
 			// 
@@ -109,8 +107,7 @@ namespace CZServer
 			this.cmdCancelar.Size = new System.Drawing.Size(35, 35);
 			this.cmdCancelar.TabIndex = 5;
 			this.cmdCancelar.Text = "Cancelar";
-			this.cmdCancelar.UseVisualStyleBackColor = true;
-			this.cmdCancelar.Click += new System.EventHandler(this.CmdCancelarClick);
+			this.cmdCancelar.UseVisualStyleBackColor = true;			
 			// 
 			// cmdSalir
 			// 
