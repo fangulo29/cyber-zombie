@@ -7,3 +7,13 @@ C:\Documents and Settings\Pepe\Mis documentos\Visual Studio 2010\Projects\CZServ
 C:\Documents and Settings\Pepe\Mis documentos\Visual Studio 2010\Projects\CZServer\CZServer\obj\x86\Debug\GenerateResource.write.1.tlog
 C:\Documents and Settings\Pepe\Mis documentos\Visual Studio 2010\Projects\CZServer\CZServer\obj\x86\Debug\CZServer.exe
 C:\Documents and Settings\Pepe\Mis documentos\Visual Studio 2010\Projects\CZServer\CZServer\obj\x86\Debug\CZServer.pdb
+C:\Users\Pepe\Documents\Visual Studio 2010\Projects\CZ\cyber-zombie\ cyber-zombie --username Jose.Gpe.Mosqueda.Glez@gmail.com\CZServer\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\Pepe\Documents\Visual Studio 2010\Projects\CZ\cyber-zombie\ cyber-zombie --username Jose.Gpe.Mosqueda.Glez@gmail.com\CZServer\obj\x86\Debug\CZServer.frmBase.resources
+C:\Users\Pepe\Documents\Visual Studio 2010\Projects\CZ\cyber-zombie\ cyber-zombie --username Jose.Gpe.Mosqueda.Glez@gmail.com\CZServer\obj\x86\Debug\CZServer.frmPrincipal.resources
+C:\Users\Pepe\Documents\Visual Studio 2010\Projects\CZ\cyber-zombie\ cyber-zombie --username Jose.Gpe.Mosqueda.Glez@gmail.com\CZServer\obj\x86\Debug\CZServer.Properties.Resources.resources
+C:\Users\Pepe\Documents\Visual Studio 2010\Projects\CZ\cyber-zombie\ cyber-zombie --username Jose.Gpe.Mosqueda.Glez@gmail.com\CZServer\obj\x86\Debug\GenerateResource.read.1.tlog
+C:\Users\Pepe\Documents\Visual Studio 2010\Projects\CZ\cyber-zombie\ cyber-zombie --username Jose.Gpe.Mosqueda.Glez@gmail.com\CZServer\obj\x86\Debug\GenerateResource.write.1.tlog
+C:\Users\Pepe\Documents\Visual Studio 2010\Projects\CZ\cyber-zombie\ cyber-zombie --username Jose.Gpe.Mosqueda.Glez@gmail.com\CZServer\obj\x86\Debug\CZServer.exe
+C:\Users\Pepe\Documents\Visual Studio 2010\Projects\CZ\cyber-zombie\ cyber-zombie --username Jose.Gpe.Mosqueda.Glez@gmail.com\CZServer\obj\x86\Debug\CZServer.pdb
+C:\Users\Pepe\Documents\Visual Studio 2010\Projects\CZ\cyber-zombie\ cyber-zombie --username Jose.Gpe.Mosqueda.Glez@gmail.com\CZServer\bin\Debug\CZServer.exe
+C:\Users\Pepe\Documents\Visual Studio 2010\Projects\CZ\cyber-zombie\ cyber-zombie --username Jose.Gpe.Mosqueda.Glez@gmail.com\CZServer\bin\Debug\CZServer.pdb

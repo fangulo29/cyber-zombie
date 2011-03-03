@@ -28,5 +28,48 @@ namespace CZServer
 			// TODO: Add constructor code after the InitializeComponent() call.
 			//
 		}
+		private void ConfigurarBotonesInicial()
+		{
+			cmdCancelar.Enabled = false;
+			cmdEditar.Enabled = false;
+			cmdEliminar.Enabled = false;
+			cmdGuardar.Enabled = false;
+			gbPrincipal.Enabled = false;
+		}
+		
+		void CmdNuevoClick(object sender, EventArgs e)
+		{
+			cmdGuardar.Enabled = true;
+			cmdCancelar.Enabled = true;
+			gbPrincipal.Enabled = true;
+		}
+		
+		void CmdBuscarClick(object sender, EventArgs e)
+		{
+			cmdEditar.Enabled = true;			
+			cmdEliminar.Enabled = true;
+			cmdCancelar.Enabled = true;
+		}
+		
+		void CmdEditarClick(object sender, EventArgs e)
+		{
+			cmdGuardar.Enabled = true;
+			gbPrincipal.Enabled = true;
+		}
+		
+		void CmdGuardarClick(object sender, EventArgs e)
+		{
+			ConfigurarBotonesInicial();
+		}
+		
+		void CmdEliminarClick(object sender, EventArgs e)
+		{
+			ConfigurarBotonesInicial();
+		}
+		
+		void CmdCancelarClick(object sender, EventArgs e)
+		{
+			ConfigurarBotonesInicial();
+		}
 	}
 }
