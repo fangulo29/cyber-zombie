@@ -11,22 +11,20 @@ using System.Drawing;
 using System.Windows.Forms;
 
 namespace CZServer
-{
-	/// <summary>
-	/// Description of frmPrincipal.
-	/// </summary>
+{	
 	public partial class frmPrincipal : Form
 	{
+		private Configuracion.frmTipos objTipos;
 		public frmPrincipal()
 		{
-			//
-			// The InitializeComponent() call is required for Windows Forms designer support.
-			//
 			InitializeComponent();
-			
-			//
-			// TODO: Add constructor code after the InitializeComponent() call.
-			//
+			objTipos = new CZServer.Configuracion.frmTipos();
+		}
+		
+		void TiposToolStripMenuItemClick(object sender, EventArgs e)
+		{			
+			objTipos.MdiParent = this;
+			objTipos.Show();
 		}
 	}
 }

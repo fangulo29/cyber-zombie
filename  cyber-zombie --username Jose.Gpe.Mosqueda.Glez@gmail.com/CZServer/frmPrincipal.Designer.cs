@@ -80,6 +80,7 @@ namespace CZServer
 			this.tiposToolStripMenuItem.Name = "tiposToolStripMenuItem";
 			this.tiposToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
 			this.tiposToolStripMenuItem.Text = "Tipos";
+			this.tiposToolStripMenuItem.Click += new System.EventHandler(this.TiposToolStripMenuItemClick);
 			// 
 			// sesionesToolStripMenuItem
 			// 
@@ -96,31 +97,31 @@ namespace CZServer
 			// iniciarToolStripMenuItem
 			// 
 			this.iniciarToolStripMenuItem.Name = "iniciarToolStripMenuItem";
-			this.iniciarToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+			this.iniciarToolStripMenuItem.Size = new System.Drawing.Size(129, 22);
 			this.iniciarToolStripMenuItem.Text = "Iniciar";
 			// 
 			// salirToolStripMenuItem
 			// 
 			this.salirToolStripMenuItem.Name = "salirToolStripMenuItem";
-			this.salirToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+			this.salirToolStripMenuItem.Size = new System.Drawing.Size(129, 22);
 			this.salirToolStripMenuItem.Text = "Salir";
 			// 
 			// visorDeSesionesToolStripMenuItem
 			// 
 			this.visorDeSesionesToolStripMenuItem.Name = "visorDeSesionesToolStripMenuItem";
-			this.visorDeSesionesToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+			this.visorDeSesionesToolStripMenuItem.Size = new System.Drawing.Size(129, 22);
 			this.visorDeSesionesToolStripMenuItem.Text = "Visor";
 			// 
 			// resumenToolStripMenuItem
 			// 
 			this.resumenToolStripMenuItem.Name = "resumenToolStripMenuItem";
-			this.resumenToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+			this.resumenToolStripMenuItem.Size = new System.Drawing.Size(129, 22);
 			this.resumenToolStripMenuItem.Text = "Resumen";
 			// 
 			// consolaToolStripMenuItem
 			// 
 			this.consolaToolStripMenuItem.Name = "consolaToolStripMenuItem";
-			this.consolaToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+			this.consolaToolStripMenuItem.Size = new System.Drawing.Size(129, 22);
 			this.consolaToolStripMenuItem.Text = "Consola";
 			// 
 			// frmPrincipal

@@ -28,13 +28,32 @@ namespace CZServer
 			// TODO: Add constructor code after the InitializeComponent() call.
 			//
 		}
-		private void ConfigurarBotonesInicial()
+		protected void ConfigurarBotonesInicial()
 		{
 			cmdCancelar.Enabled = false;
 			cmdEditar.Enabled = false;
 			cmdEliminar.Enabled = false;
 			cmdGuardar.Enabled = false;
 			gbPrincipal.Enabled = false;
+			Limpiar(gbPrincipal);
+		}
+		
+		protected void Limpiar(GroupBox gb)
+		{
+			foreach(Control control in gb.Controls)
+			{
+				if(control.GetType() == typeof(TextBox)) control.Text = string.Empty;
+			}
+		}
+		
+		protected bool ValidarVacio(GroupBox gb)
+		{			
+			bool correcto = true;
+			foreach(Control control in gb.Controls)
+			{
+				if(control.GetType() == typeof(TextBox) && control.Text.Length==0) control.BackColor = Color.LightYellow;
+			}
+			return correcto;
 		}
 		
 		void CmdNuevoClick(object sender, EventArgs e)
@@ -42,6 +61,7 @@ namespace CZServer
 			cmdGuardar.Enabled = true;
 			cmdCancelar.Enabled = true;
 			gbPrincipal.Enabled = true;
+			Limpiar(gbPrincipal);
 		}
 		
 		void CmdBuscarClick(object sender, EventArgs e)
@@ -56,26 +76,11 @@ namespace CZServer
 			cmdGuardar.Enabled = true;
 			gbPrincipal.Enabled = true;
 		}
-		
-		void CmdGuardarClick(object sender, EventArgs e)
-		{
-			ConfigurarBotonesInicial();
-		}
-		
-		void CmdEliminarClick(object sender, EventArgs e)
-		{
-			ConfigurarBotonesInicial();
-		}
-		
-		void CmdCancelarClick(object sender, EventArgs e)
-		{
-			ConfigurarBotonesInicial();
-		}
-		
+				
 		void CmdSalirClick(object sender, EventArgs e)
-		{
-			this.Dispose();
-			this.Close();
-		}
+		{	
+			ConfigurarBotonesInicial();
+			this.Hide();
+		}		
 	}
 }
