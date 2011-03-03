@@ -121,6 +121,7 @@ namespace CZServer
 			this.cmdSalir.TabIndex = 6;
 			this.cmdSalir.Text = "Salir";
 			this.cmdSalir.UseVisualStyleBackColor = true;
+			this.cmdSalir.Click += new System.EventHandler(this.CmdSalirClick);
 			// 
 			// gbPrincipal
 			// 

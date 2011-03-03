@@ -36,12 +36,48 @@ namespace CZServer.Configuracion
 		/// </summary>
 		private void InitializeComponent()
 		{
+			this.SuspendLayout();
+			// 
+			// gbPrincipal
+			// 
+			this.gbPrincipal.Size = new System.Drawing.Size(570, 297);
+			// 
+			// cmdSalir
+			// 
+			this.cmdSalir.Location = new System.Drawing.Point(547, 325);
+			// 
+			// cmdCancelar
+			// 
+			this.cmdCancelar.Location = new System.Drawing.Point(506, 325);
+			// 
+			// cmdEliminar
+			// 
+			this.cmdEliminar.Location = new System.Drawing.Point(311, 325);
+			// 
+			// cmdGuardar
+			// 
+			this.cmdGuardar.Location = new System.Drawing.Point(270, 325);
+			// 
+			// cmdEditar
+			// 
+			this.cmdEditar.Location = new System.Drawing.Point(229, 325);
+			// 
+			// cmdBuscar
+			// 
+			this.cmdBuscar.Location = new System.Drawing.Point(53, 325);
+			// 
+			// cmdNuevo
+			// 
+			this.cmdNuevo.Location = new System.Drawing.Point(12, 325);
 			// 
 			// frmTipos
 			// 
+			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.Text = "frmTipos";
+			this.ClientSize = new System.Drawing.Size(594, 372);
 			this.Name = "frmTipos";
+			this.Text = "Tipos de Equipo";
+			this.ResumeLayout(false);
 		}
 	}
 }

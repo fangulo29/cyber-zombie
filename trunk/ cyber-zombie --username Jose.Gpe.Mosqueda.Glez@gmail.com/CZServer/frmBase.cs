@@ -71,5 +71,11 @@ namespace CZServer
 		{
 			ConfigurarBotonesInicial();
 		}
+		
+		void CmdSalirClick(object sender, EventArgs e)
+		{
+			this.Dispose();
+			this.Close();
+		}
 	}
 }

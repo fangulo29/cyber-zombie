@@ -17,3 +17,4 @@ C:\Users\Pepe\Documents\Visual Studio 2010\Projects\CZ\cyber-zombie\ cyber-zombi
 C:\Users\Pepe\Documents\Visual Studio 2010\Projects\CZ\cyber-zombie\ cyber-zombie --username Jose.Gpe.Mosqueda.Glez@gmail.com\CZServer\obj\x86\Debug\CZServer.pdb
 C:\Users\Pepe\Documents\Visual Studio 2010\Projects\CZ\cyber-zombie\ cyber-zombie --username Jose.Gpe.Mosqueda.Glez@gmail.com\CZServer\bin\Debug\CZServer.exe
 C:\Users\Pepe\Documents\Visual Studio 2010\Projects\CZ\cyber-zombie\ cyber-zombie --username Jose.Gpe.Mosqueda.Glez@gmail.com\CZServer\bin\Debug\CZServer.pdb
+C:\Users\Pepe\Documents\Visual Studio 2010\Projects\CZ\cyber-zombie\ cyber-zombie --username Jose.Gpe.Mosqueda.Glez@gmail.com\CZServer\obj\x86\Debug\CZServer.Configuracion.frmTipos.resources
