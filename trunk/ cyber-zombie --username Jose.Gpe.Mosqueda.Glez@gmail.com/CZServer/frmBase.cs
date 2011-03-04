@@ -12,22 +12,18 @@ using System.Windows.Forms;
 
 namespace CZServer
 {
-	/// <summary>
-	/// Description of frmBase.
-	/// </summary>
+	//Formulario base para los formulario catálogo.
 	public partial class frmBase : Form
 	{
+		public string strEstatus="";
 		public frmBase()
 		{
-			//
-			// The InitializeComponent() call is required for Windows Forms designer support.
-			//
 			InitializeComponent();
-			
-			//
-			// TODO: Add constructor code after the InitializeComponent() call.
-			//
+			ConfigurarBotonesInicial();
+			strEstatus = "Inactivo";
 		}
+		//Función que configura los botones inicialmente
+		//desactivando los que no son necesarios al inicio del proceso
 		protected void ConfigurarBotonesInicial()
 		{
 			cmdCancelar.Enabled = false;
@@ -37,7 +33,7 @@ namespace CZServer
 			gbPrincipal.Enabled = false;
 			Limpiar(gbPrincipal);
 		}
-		
+		//Función que obtiene los controles tipo textbox y los deja vacios
 		protected void Limpiar(GroupBox gb)
 		{
 			foreach(Control control in gb.Controls)
@@ -45,23 +41,43 @@ namespace CZServer
 				if(control.GetType() == typeof(TextBox)) control.Text = string.Empty;
 			}
 		}
-		
-		protected bool ValidarVacio(GroupBox gb)
+		//Función que obtiene los controles tipo textbox y valida que no vengan vaciós
+		//si vienen vaciós el color de fondo de los textbox se torna amarillo indicando que campos son requeridos
+		//devuelve true si todos los campos están llenos, y false si alguno de ellos vienen vacío
+		protected bool ValidarVacio(GroupBox gb,bool conID)
 		{			
 			bool correcto = true;
 			foreach(Control control in gb.Controls)
 			{
-				if(control.GetType() == typeof(TextBox) && control.Text.Length==0) control.BackColor = Color.LightYellow;
+				if(conID)
+				{
+					if(control.GetType() == typeof(TextBox) && control.Text.Length==0)
+					{
+						control.BackColor = Color.LightYellow;
+						correcto = false;
+					}
+				}
+				else
+				{
+					if(control.GetType() == typeof(TextBox) && control.Text.Length==0 && control.Name != "txtID")
+					{
+						control.BackColor = Color.LightYellow;
+						correcto = false;
+					}
+				}
 			}
 			return correcto;
 		}
-		
+		//Eventos Click de los botones
+		//realizan operaciones como desactivar y activar ciertos botones dependiendo del proceso a realizar,
+		//limpian los textbox dependiendo del proceso.
 		void CmdNuevoClick(object sender, EventArgs e)
 		{
 			cmdGuardar.Enabled = true;
 			cmdCancelar.Enabled = true;
 			gbPrincipal.Enabled = true;
 			Limpiar(gbPrincipal);
+			strEstatus = "Nuevo";
 		}
 		
 		void CmdBuscarClick(object sender, EventArgs e)
@@ -69,18 +85,32 @@ namespace CZServer
 			cmdEditar.Enabled = true;			
 			cmdEliminar.Enabled = true;
 			cmdCancelar.Enabled = true;
+			strEstatus = "Buscar";
 		}
 		
 		void CmdEditarClick(object sender, EventArgs e)
 		{
 			cmdGuardar.Enabled = true;
 			gbPrincipal.Enabled = true;
+			strEstatus = "Editar";
 		}
 				
 		void CmdSalirClick(object sender, EventArgs e)
 		{	
 			ConfigurarBotonesInicial();
 			this.Hide();
+			strEstatus = "Inactivo";
 		}		
+		
+		void CmdCancelarClick(object sender, EventArgs e)
+		{
+			ConfigurarBotonesInicial();
+			strEstatus = "Inactivo";
+		}
+		
+		void CmdEliminarClick(object sender, EventArgs e)
+		{
+			strEstatus = "Inactivo";
+		}
 	}
 }

@@ -41,7 +41,7 @@ namespace CZServer.Configuracion
 			this.lblDescripcion = new System.Windows.Forms.Label();
 			this.lblPrecio = new System.Windows.Forms.Label();
 			this.lblUnidad = new System.Windows.Forms.Label();
-			this.txtId = new System.Windows.Forms.TextBox();
+			this.txtID = new System.Windows.Forms.TextBox();
 			this.txtNombre = new System.Windows.Forms.TextBox();
 			this.txtDescripcion = new System.Windows.Forms.TextBox();
 			this.txtPrecio = new System.Windows.Forms.TextBox();
@@ -55,7 +55,7 @@ namespace CZServer.Configuracion
 			this.gbPrincipal.Controls.Add(this.txtPrecio);
 			this.gbPrincipal.Controls.Add(this.txtDescripcion);
 			this.gbPrincipal.Controls.Add(this.txtNombre);
-			this.gbPrincipal.Controls.Add(this.txtId);
+			this.gbPrincipal.Controls.Add(this.txtID);
 			this.gbPrincipal.Controls.Add(this.lblUnidad);
 			this.gbPrincipal.Controls.Add(this.lblPrecio);
 			this.gbPrincipal.Controls.Add(this.lblDescripcion);
@@ -74,6 +74,7 @@ namespace CZServer.Configuracion
 			// cmdEliminar
 			// 
 			this.cmdEliminar.Location = new System.Drawing.Point(311, 325);
+			this.cmdEliminar.Click += new System.EventHandler(this.CmdEliminarClick);
 			// 
 			// cmdGuardar
 			// 
@@ -87,6 +88,7 @@ namespace CZServer.Configuracion
 			// cmdBuscar
 			// 
 			this.cmdBuscar.Location = new System.Drawing.Point(53, 325);
+			this.cmdBuscar.Click += new System.EventHandler(this.CmdBuscarClick);
 			// 
 			// cmdNuevo
 			// 
@@ -99,7 +101,7 @@ namespace CZServer.Configuracion
 			this.lblId.Name = "lblId";
 			this.lblId.Size = new System.Drawing.Size(22, 23);
 			this.lblId.TabIndex = 0;
-			this.lblId.Text = "Id :";			
+			this.lblId.Text = "Id :";
 			// 
 			// label1
 			// 
@@ -133,13 +135,13 @@ namespace CZServer.Configuracion
 			this.lblUnidad.TabIndex = 4;
 			this.lblUnidad.Text = "Tipo de Unidad :";
 			// 
-			// txtId
+			// txtID
 			// 
-			this.txtId.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			this.txtId.Location = new System.Drawing.Point(99, 14);
-			this.txtId.Name = "txtId";
-			this.txtId.Size = new System.Drawing.Size(42, 20);
-			this.txtId.TabIndex = 5;
+			this.txtID.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.txtID.Location = new System.Drawing.Point(99, 14);
+			this.txtID.Name = "txtID";
+			this.txtID.Size = new System.Drawing.Size(42, 20);
+			this.txtID.TabIndex = 5;
 			// 
 			// txtNombre
 			// 
@@ -187,11 +189,11 @@ namespace CZServer.Configuracion
 			this.gbPrincipal.PerformLayout();
 			this.ResumeLayout(false);
 		}
+		private System.Windows.Forms.TextBox txtID;
 		private System.Windows.Forms.TextBox txtNombre;
 		private System.Windows.Forms.TextBox txtDescripcion;
 		private System.Windows.Forms.TextBox txtPrecio;
 		private System.Windows.Forms.TextBox txtUnidad;
-		private System.Windows.Forms.TextBox txtId;
 		private System.Windows.Forms.Label lblId;
 		private System.Windows.Forms.Label label1;
 		private System.Windows.Forms.Label lblDescripcion;
