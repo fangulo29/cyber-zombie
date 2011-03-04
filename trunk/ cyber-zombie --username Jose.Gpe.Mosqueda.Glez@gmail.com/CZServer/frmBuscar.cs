@@ -93,21 +93,30 @@ namespace CZServer
                         			dgvContenido.Rows.Add(lstTipos[i].ID_TIPO,lstTipos[i].NOMBRE_TIPO);						
                         		}
                         		break;
-                        	case "EquiposRed":
-                        		try
-                        		{
-                        			foreach(string pc in ObtenerEquiposenRed())
-                        			{
-                        				IPs = Dns.GetHostByName(pc);
-                        				lstIPs = IPs.AddressList;
-                        				dgvContenido.Rows.Add(lstIPs[0].ToString(),pc);                        				
-                        			}
-                        		}
-                        		catch(Exception e)
-                        		{
-                        			MessageBox.Show("A Ocurrido Un Error Intentando Accesar a la Red."+e.Message,"error",MessageBoxButtons.OK,MessageBoxIcon.Error);
-                        		}
-                        		break;
+                        	case "EquiposRed":                  
+//                        		try
+//                        		{
+//                        			foreach(string pc in ObtenerEquiposenRed())
+//                        			{
+//                        				IPs = Dns.GetHostByName(pc);
+//                        				lstIPs = IPs.AddressList;
+//                        				if(lstIPs.Length>0) dgvContenido.Rows.Add(lstIPs[0].ToString(),pc);
+//                        			}
+//                        		}
+//                        		catch
+//                        		{
+//                        			MessageBox.Show("Error de red");
+//                        		}
+					foreach (string pc in ObtenerEquiposenRed()) {
+						try{
+							IPs = Dns.GetHostByName(pc);
+							lstIPs = IPs.AddressList;
+							dgvContenido.Rows.Add(lstIPs[0].ToString(),pc);
+							IPAddress.
+						}
+						catch{}
+					}
+	                       		break;
                         	default:
                         		break;
                         }
@@ -149,7 +158,7 @@ namespace CZServer
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Problem with acessing network computers in NetworkBrowser " +
+                MessageBox.Show("Problema al accesar a la red para consultar HostName " +
                     "\r\n\r\n\r\n" + ex.Message,
                     "Error", MessageBoxButtons.OK,
                     MessageBoxIcon.Error);

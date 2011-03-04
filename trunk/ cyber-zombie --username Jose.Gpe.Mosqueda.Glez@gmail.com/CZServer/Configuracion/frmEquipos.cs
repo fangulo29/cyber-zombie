@@ -11,25 +11,41 @@ using System.Drawing;
 using System.Windows.Forms;
 
 namespace CZServer.Configuracion
-{
-	/// <summary>
-	/// Description of frmEquipos.
-	/// </summary>
+{	
 	public partial class frmEquipos : frmBase
 	{
+		private Equipos objEquipos;
+		private Tipos objTipos;
 		private frmBuscar objBuscarEnRed;
 		private frmBuscar objBuscarTipos;
+		private frmBuscar objBuscarEquipos;
 		
 		public frmEquipos()
 		{
-			//
-			// The InitializeComponent() call is required for Windows Forms designer support.
-			//
 			InitializeComponent();
-			
-			//
-			// TODO: Add constructor code after the InitializeComponent() call.
-			//
+			objEquipos = new Equipos();
+			objTipos = new Tipos();
+		}
+		
+		private void ObtenerDatos()
+		{
+			if(strEstatus=="Edicion") objEquipos.ID_EQUIPO = int.Parse(txtID.Text);
+			objEquipos.ID_TIPO = int.Parse(txtTipo.Tag);
+			objEquipos.IP_EQUIPO = txtIP.Text;
+			objEquipos.NOMBRE_EQUIPO = txtNombre.Text;
+			objEquipos.CARACTERISTICAS_EQUIPO = txtCaracteristicas.Text;
+		}
+		
+		private void MostrarDatos(int ID)
+		{
+			objEquipos.Buscar(ID);
+			txtID.Text = objEquipos.ID_EQUIPO.ToString();
+			objTipos.Buscar(objEquipos.ID_TIPO);
+			txtTipo.Tag = objTipos.ID_TIPO;
+			txtTipo.Text = objTipos.NOMBRE_TIPO;
+			txtIP.Text = objEquipos.IP_EQUIPO;
+			txtNombre.Text = objEquipos.NOMBRE_EQUIPO;
+			txtCaracteristicas.Text = objEquipos.CARACTERISTICAS_EQUIPO;
 		}
 		
 		void CmdRedClick(object sender, EventArgs e)
@@ -48,10 +64,13 @@ namespace CZServer.Configuracion
 		{
 			if(objBuscarEnRed != null)
 			{
-				txtIP.Text = objBuscarEnRed.dgvBusqueda.SelectedRows[0].Cells[0].Value.ToString();
-				txtNombre.Text = objBuscarEnRed.dgvBusqueda.SelectedRows[0].Cells[1].Value.ToString();
-				objBuscarEnRed.Close();
-				objBuscarEnRed = null;
+				if(objBuscarEnRed.dgvBusqueda.SelectedRows[0].Cells[0].Value.ToString().Length>0)
+				{
+					txtIP.Text = objBuscarEnRed.dgvBusqueda.SelectedRows[0].Cells[0].Value.ToString();
+					txtNombre.Text = objBuscarEnRed.dgvBusqueda.SelectedRows[0].Cells[1].Value.ToString();
+					objBuscarEnRed.Close();
+					objBuscarEnRed = null;
+				}
 			}
 		}
 		
@@ -71,8 +90,38 @@ namespace CZServer.Configuracion
 		{
 			if(objBuscarTipos != null)
 			{
-				txtTipo.Tag = objBuscarTipos.dgvBusqueda.SelectedRows[0].Cells[0].Value.ToString();
-				txtTipo.Text = objBuscarTipos.dgvBusqueda.SelectedRows[0].Cells[1].Value.ToString();
+				if(objBuscarTipos.dgvBusqueda.SelectedRows[0].Cells[0].Value.ToString().Length>0)
+				{
+					txtTipo.Tag = objBuscarTipos.dgvBusqueda.SelectedRows[0].Cells[0].Value.ToString();
+					txtTipo.Text = objBuscarTipos.dgvBusqueda.SelectedRows[0].Cells[1].Value.ToString();
+					objBuscarTipos.Close();
+					objBuscarTipos = null
+				}
+			}
+		}
+		
+		void CmdBuscarClick(object sender, EventArgs e)
+		{
+			if(objBuscarEquipos == null)
+			{
+				objBuscarEquipos = new frmBuscar("Equipos");
+				objBuscarEquipos.dgvBusqueda.DoubleClick += new EventHandler( SeleccionarEquipos);
+				objBuscarEquipos.cmdSeleccionar.Click += new EventHandler( SeleccionarEquipos);
+			}
+			objBuscarEquipos.MdiParent = this.MdiParent;
+			objBuscarEquipos.Show();
+		}
+		
+		private void SeleccionarEquipos(object sender,EventArgs e)
+		{
+			if(objBuscarEquipos != null)
+			{
+				if(objBuscarEquipos.dgvBusqueda.SelectedRows[0].Cells[0].Value.ToString().Length>0)
+				{
+					MostrarDatos(objBuscarEquipos.dgvBusqueda.SelectedRows[0].Cells[0].Value.ToString());
+					objBuscarEquipos.Close();
+					objBuscarEquipos =null;
+				}
 			}
 		}
 	}

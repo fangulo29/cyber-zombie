@@ -24,7 +24,8 @@ namespace CZServer.Configuracion
 		}				
 		
 		private void ObtenerDatos()
-		{			
+		{	
+			if(strEstatus=="Edicion")  objTipos.ID_TIPO = int.Parse(txtID.Text);
 			objTipos.NOMBRE_TIPO = txtNombre.Text;
 			objTipos.DESCRIPCION_TIPO = txtDescripcion.Text;
 			objTipos.PRECIO_UNITARIO = decimal.Parse(txtPrecio.Text);
