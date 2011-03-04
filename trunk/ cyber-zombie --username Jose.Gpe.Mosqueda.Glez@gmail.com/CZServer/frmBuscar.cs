@@ -100,7 +100,7 @@ namespace CZServer
                         			{
                         				IPs = Dns.GetHostByName(pc);
                         				lstIPs = IPs.AddressList;
-                        				dgvContenido.Rows.Add(lstIPs[0].ToString(),pc);
+                        				dgvContenido.Rows.Add(lstIPs[0].ToString(),pc);                        				
                         			}
                         		}
                         		catch(Exception e)
