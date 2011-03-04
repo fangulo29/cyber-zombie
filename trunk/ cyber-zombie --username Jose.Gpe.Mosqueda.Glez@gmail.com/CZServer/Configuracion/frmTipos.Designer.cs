@@ -61,38 +61,38 @@ namespace CZServer.Configuracion
 			this.gbPrincipal.Controls.Add(this.lblDescripcion);
 			this.gbPrincipal.Controls.Add(this.label1);
 			this.gbPrincipal.Controls.Add(this.lblId);
-			this.gbPrincipal.Size = new System.Drawing.Size(570, 297);
+			this.gbPrincipal.Size = new System.Drawing.Size(281, 149);
 			// 
 			// cmdSalir
 			// 
-			this.cmdSalir.Location = new System.Drawing.Point(547, 325);
+			this.cmdSalir.Location = new System.Drawing.Point(258, 167);
 			// 
 			// cmdCancelar
 			// 
-			this.cmdCancelar.Location = new System.Drawing.Point(506, 325);
+			this.cmdCancelar.Location = new System.Drawing.Point(217, 167);
 			// 
 			// cmdEliminar
 			// 
-			this.cmdEliminar.Location = new System.Drawing.Point(311, 325);
+			this.cmdEliminar.Location = new System.Drawing.Point(176, 167);
 			this.cmdEliminar.Click += new System.EventHandler(this.CmdEliminarClick);
 			// 
 			// cmdGuardar
 			// 
-			this.cmdGuardar.Location = new System.Drawing.Point(270, 325);
+			this.cmdGuardar.Location = new System.Drawing.Point(135, 167);
 			this.cmdGuardar.Click += new System.EventHandler(this.CmdGuardarClick);
 			// 
 			// cmdEditar
 			// 
-			this.cmdEditar.Location = new System.Drawing.Point(229, 325);
+			this.cmdEditar.Location = new System.Drawing.Point(94, 167);
 			// 
 			// cmdBuscar
 			// 
-			this.cmdBuscar.Location = new System.Drawing.Point(53, 325);
+			this.cmdBuscar.Location = new System.Drawing.Point(53, 167);
 			this.cmdBuscar.Click += new System.EventHandler(this.CmdBuscarClick);
 			// 
 			// cmdNuevo
 			// 
-			this.cmdNuevo.Location = new System.Drawing.Point(12, 325);
+			this.cmdNuevo.Location = new System.Drawing.Point(12, 167);
 			this.cmdNuevo.Click += new System.EventHandler(this.CmdNuevoClick);
 			// 
 			// lblId
@@ -182,7 +182,7 @@ namespace CZServer.Configuracion
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(594, 372);
+			this.ClientSize = new System.Drawing.Size(309, 215);
 			this.Name = "frmTipos";
 			this.Text = "Tipos de Equipo";
 			this.gbPrincipal.ResumeLayout(false);

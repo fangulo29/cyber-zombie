@@ -77,7 +77,7 @@ namespace CZServer.Configuracion
 			{
 				objBuscar = new frmBuscar("Tipos");			
 				objBuscar.dgvBusqueda.DoubleClick += new EventHandler(SeleccionarTipos);
-				objBuscar.cmdSeleccionar.Click += new EventHandler( SeleccionarTipos);
+				objBuscar.cmdSeleccionar.Click += new EventHandler(SeleccionarTipos);
 			}
 			objBuscar.MdiParent = this.MdiParent;
 			objBuscar.Show();
@@ -87,9 +87,12 @@ namespace CZServer.Configuracion
 		{
 			if(objBuscar != null)
 			{
-				MostrarDatos(int.Parse(objBuscar.dgvBusqueda.SelectedRows[0].Cells[0].Value.ToString()));
-				objBuscar.Close();
-				objBuscar = null;
+				if(objBuscar.dgvBusqueda.SelectedRows[0].Cells[0].Value.ToString().Length > 0)
+				{
+					MostrarDatos(int.Parse(objBuscar.dgvBusqueda.SelectedRows[0].Cells[0].Value.ToString()));
+					objBuscar.Close();
+					objBuscar = null;
+				}
 			}
 		}
 		
