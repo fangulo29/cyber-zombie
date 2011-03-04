@@ -20,3 +20,4 @@ C:\Users\Pepe\Documents\Visual Studio 2010\Projects\CZ\cyber-zombie\ cyber-zombi
 C:\Documents and Settings\Pepe\Mis documentos\Visual Studio 2010\Projects\CZServer\CZServer\obj\x86\Debug\CZServer.Configuracion.frmTipos.resources
 C:\Documents and Settings\Pepe\Mis documentos\Visual Studio 2010\Projects\CZServer\CZServer\obj\x86\Debug\CZServer.frmBase.resources
 C:\Documents and Settings\Pepe\Mis documentos\Visual Studio 2010\Projects\CZServer\CZServer\obj\x86\Debug\CZServer.frmPrincipal.resources
+C:\Documents and Settings\Pepe\Mis documentos\Visual Studio 2010\Projects\CZServer\CZServer\obj\x86\Debug\CZServer.frmBuscar.resources

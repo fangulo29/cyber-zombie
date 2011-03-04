@@ -7,8 +7,12 @@ using System.Windows.Forms;
 
 namespace CZServer
 {
+	//Clase del motor de la base de datos:
+	//--se crea el string de conección para la base de datos
+	//--se crean las constantes de conección, comando y el string de consulta a la base de datos
+	// --se crean los métodos de conección y ejecución de consultas tales como insert,updates y deletes
 	public class BDEngine
-	{
+	{		
 		#region "Atributos"
 		protected string Server = "localhost";
 		protected string Data_Base = "cz";
@@ -46,7 +50,9 @@ namespace CZServer
 		}
 		#endregion
 	}
-
+	//Clase de la tabla Tipos:
+	//--se crean atributos por cada campo de la tabla
+	//--se crean métodos haciendo llamadas a Store Procedure
 	public class Tipos : BDEngine
 	{
 		#region "Atributos"
