@@ -65,27 +65,37 @@ namespace CZServer.Configuracion
 			this.gbPrincipal.Controls.Add(this.lblIP);
 			this.gbPrincipal.Controls.Add(this.lblTipo);
 			this.gbPrincipal.Controls.Add(this.lblID);
-			this.gbPrincipal.Size = new System.Drawing.Size(281, 297);
+			this.gbPrincipal.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.gbPrincipal.Size = new System.Drawing.Size(281, 261);
 			// 
 			// cmdSalir
 			// 
-			this.cmdSalir.Location = new System.Drawing.Point(258, 315);
+			this.cmdSalir.Location = new System.Drawing.Point(258, 279);
 			// 
 			// cmdCancelar
 			// 
-			this.cmdCancelar.Location = new System.Drawing.Point(217, 315);
+			this.cmdCancelar.Location = new System.Drawing.Point(217, 279);
 			// 
 			// cmdEliminar
 			// 
-			this.cmdEliminar.Location = new System.Drawing.Point(176, 315);
+			this.cmdEliminar.Location = new System.Drawing.Point(176, 279);
 			// 
 			// cmdGuardar
 			// 
-			this.cmdGuardar.Location = new System.Drawing.Point(135, 315);
+			this.cmdGuardar.Location = new System.Drawing.Point(135, 279);
 			// 
 			// cmdEditar
 			// 
-			this.cmdEditar.Location = new System.Drawing.Point(94, 315);
+			this.cmdEditar.Location = new System.Drawing.Point(94, 279);
+			// 
+			// cmdBuscar
+			// 
+			this.cmdBuscar.Location = new System.Drawing.Point(53, 279);
+			this.cmdBuscar.Click += new System.EventHandler(this.CmdBuscarClick);
+			// 
+			// cmdNuevo
+			// 
+			this.cmdNuevo.Location = new System.Drawing.Point(12, 279);
 			// 
 			// lblID
 			// 
@@ -130,6 +140,7 @@ namespace CZServer.Configuracion
 			// txtID
 			// 
 			this.txtID.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.txtID.Enabled = false;
 			this.txtID.Location = new System.Drawing.Point(90, 14);
 			this.txtID.Name = "txtID";
 			this.txtID.Size = new System.Drawing.Size(41, 20);
@@ -138,6 +149,7 @@ namespace CZServer.Configuracion
 			// txtTipo
 			// 
 			this.txtTipo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.txtTipo.Enabled = false;
 			this.txtTipo.Location = new System.Drawing.Point(90, 40);
 			this.txtTipo.MaxLength = 40;
 			this.txtTipo.Name = "txtTipo";
@@ -147,6 +159,7 @@ namespace CZServer.Configuracion
 			// txtIP
 			// 
 			this.txtIP.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.txtIP.Enabled = false;
 			this.txtIP.Location = new System.Drawing.Point(90, 66);
 			this.txtIP.Name = "txtIP";
 			this.txtIP.Size = new System.Drawing.Size(121, 20);
@@ -155,6 +168,7 @@ namespace CZServer.Configuracion
 			// txtNombre
 			// 
 			this.txtNombre.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.txtNombre.Enabled = false;
 			this.txtNombre.Location = new System.Drawing.Point(90, 92);
 			this.txtNombre.MaxLength = 20;
 			this.txtNombre.Name = "txtNombre";
@@ -173,6 +187,7 @@ namespace CZServer.Configuracion
 			// 
 			// cmdTipos
 			// 
+			this.cmdTipos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.cmdTipos.Location = new System.Drawing.Point(217, 37);
 			this.cmdTipos.Name = "cmdTipos";
 			this.cmdTipos.Size = new System.Drawing.Size(35, 23);
@@ -183,6 +198,7 @@ namespace CZServer.Configuracion
 			// 
 			// cmdRed
 			// 
+			this.cmdRed.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.cmdRed.Location = new System.Drawing.Point(217, 63);
 			this.cmdRed.Name = "cmdRed";
 			this.cmdRed.Size = new System.Drawing.Size(35, 23);
@@ -195,9 +211,9 @@ namespace CZServer.Configuracion
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(304, 359);
+			this.ClientSize = new System.Drawing.Size(304, 324);
 			this.Name = "frmEquipos";
-			this.Text = "frmEquipos";
+			this.Text = "Equipos en la Red";
 			this.gbPrincipal.ResumeLayout(false);
 			this.gbPrincipal.PerformLayout();
 			this.ResumeLayout(false);
