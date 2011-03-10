@@ -26,9 +26,6 @@ namespace CZServer
 		private List<Tipos> lstTipos;
 		private List<Equipos> lstEquipos;
 		
-		private IPHostEntry IPs;
-        private IPAddress [] lstIPs; 
-		
         #region Dll imports
 		[DllImport("Netapi32", CharSet = CharSet.Auto, SetLastError = true),SuppressUnmanagedCodeSecurityAttribute]
         public static extern int NetServerEnum(
@@ -93,29 +90,7 @@ namespace CZServer
                         			dgvContenido.Rows.Add(lstTipos[i].ID_TIPO,lstTipos[i].NOMBRE_TIPO);						
                         		}
                         		break;
-                        	case "EquiposRed":                  
-//                        		try
-//                        		{
-//                        			foreach(string pc in ObtenerEquiposenRed())
-//                        			{
-//                        				IPs = Dns.GetHostByName(pc);
-//                        				lstIPs = IPs.AddressList;
-//                        				if(lstIPs.Length>0) dgvContenido.Rows.Add(lstIPs[0].ToString(),pc);
-//                        			}
-//                        		}
-//                        		catch
-//                        		{
-//                        			MessageBox.Show("Error de red");
-//                        		}
-					foreach (string pc in ObtenerEquiposenRed()) {
-						try{
-							IPs = Dns.GetHostByName(pc);
-							lstIPs = IPs.AddressList;
-							dgvContenido.Rows.Add(lstIPs[0].ToString(),pc);
-							IPAddress.
-						}
-						catch{}
-					}
+                        	case "EquiposRed":
 	                       		break;
                         	default:
                         		break;
@@ -126,51 +101,7 @@ namespace CZServer
                         	dgvBusqueda.Rows.Add(dgvContenido.Rows[j].Cells[0].Value.ToString(),dgvContenido.Rows[j].Cells[1].Value.ToString());
                         }
 		}
-		
-		private ArrayList ObtenerEquiposenRed()
-        {       
-            ArrayList networkComputers = new ArrayList();
-            const int MAX_PREFERRED_LENGTH = -1;
-            int SV_TYPE_WORKSTATION = 1;
-            int SV_TYPE_SERVER = 2;
-            IntPtr buffer = IntPtr.Zero;
-            IntPtr tmpBuffer = IntPtr.Zero;
-            int entriesRead = 0;
-            int totalEntries = 0;
-            int resHandle = 0;
-            int sizeofINFO = Marshal.SizeOf(typeof(_SERVER_INFO_100));
-            
-            try
-            {
-                
-                int ret = NetServerEnum(null, 100, ref buffer, MAX_PREFERRED_LENGTH, out entriesRead,    out totalEntries, SV_TYPE_WORKSTATION | SV_TYPE_SERVER, null, out resHandle);
-                if (ret == 0)
-                {                
-                    for (int i = 0; i < totalEntries; i++)
-                    {                      
-                        tmpBuffer = new IntPtr((int)buffer + (i * sizeofINFO));
-                       
-                        _SERVER_INFO_100 svrInfo = (_SERVER_INFO_100)
-                            Marshal.PtrToStructure(tmpBuffer, typeof(_SERVER_INFO_100));                        
-                        networkComputers.Add(svrInfo.sv100_name);
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Problema al accesar a la red para consultar HostName " +
-                    "\r\n\r\n\r\n" + ex.Message,
-                    "Error", MessageBoxButtons.OK,
-                    MessageBoxIcon.Error);
-                return null;
-            }
-            finally
-            {               
-                NetApiBufferFree(buffer);
-            }           
-            return networkComputers;
-        }
-		
+			
 		void CmdSalirClick(object sender, EventArgs e)
 		{
 			this.Close();
