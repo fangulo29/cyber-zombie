@@ -72,6 +72,7 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SktEngine.cs" />
     <EmbeddedResource Include="Configuracion\frmEquipos.resx">
       <DependentUpon>frmEquipos.cs</DependentUpon>
     </EmbeddedResource>

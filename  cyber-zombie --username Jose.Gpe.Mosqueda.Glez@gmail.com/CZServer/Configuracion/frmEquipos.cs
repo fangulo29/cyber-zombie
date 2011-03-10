@@ -30,7 +30,7 @@ namespace CZServer.Configuracion
 		private void ObtenerDatos()
 		{
 			if(strEstatus=="Edicion") objEquipos.ID_EQUIPO = int.Parse(txtID.Text);
-			objEquipos.ID_TIPO = int.Parse(txtTipo.Tag);
+			objEquipos.ID_TIPO = int.Parse(txtTipo.Tag.ToString());
 			objEquipos.IP_EQUIPO = txtIP.Text;
 			objEquipos.NOMBRE_EQUIPO = txtNombre.Text;
 			objEquipos.CARACTERISTICAS_EQUIPO = txtCaracteristicas.Text;
@@ -95,7 +95,7 @@ namespace CZServer.Configuracion
 					txtTipo.Tag = objBuscarTipos.dgvBusqueda.SelectedRows[0].Cells[0].Value.ToString();
 					txtTipo.Text = objBuscarTipos.dgvBusqueda.SelectedRows[0].Cells[1].Value.ToString();
 					objBuscarTipos.Close();
-					objBuscarTipos = null
+					objBuscarTipos = null;
 				}
 			}
 		}
@@ -118,7 +118,7 @@ namespace CZServer.Configuracion
 			{
 				if(objBuscarEquipos.dgvBusqueda.SelectedRows[0].Cells[0].Value.ToString().Length>0)
 				{
-					MostrarDatos(objBuscarEquipos.dgvBusqueda.SelectedRows[0].Cells[0].Value.ToString());
+					MostrarDatos(int.Parse(objBuscarEquipos.dgvBusqueda.SelectedRows[0].Cells[0].Value.ToString()));
 					objBuscarEquipos.Close();
 					objBuscarEquipos =null;
 				}
