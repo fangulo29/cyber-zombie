@@ -158,9 +158,9 @@ namespace CZServer
 			strConsulta = "CALL Act_Equipo("+ID_EQUIPO+","+ID_TIPO+",'"+IP_EQUIPO+"','"+NOMBRE_EQUIPO+"','"+CARACTERISTICAS_EQUIPO+"');";
 			return Ejecuta();
 		}
-		public bool Eliminar()
+		public bool Eliminar(int ID)
 		{
-			strConsulta = "CALL Eli_Equipo("+ID_EQUIPO+");";
+			strConsulta = "CALL Eli_Equipo("+ID+");";
 			return Ejecuta();
 		}
 		public void Buscar(int ID)
