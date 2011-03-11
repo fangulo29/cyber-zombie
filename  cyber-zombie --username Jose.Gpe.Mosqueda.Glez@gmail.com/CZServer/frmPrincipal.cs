@@ -22,7 +22,6 @@ namespace CZServer
 			InitializeComponent();
 			objTipos = new CZServer.Configuracion.frmTipos();
 			objEquipos = new CZServer.Configuracion.frmEquipos();
-			//objConsola = new frmConsola();
 		}
 		
 		void TiposToolStripMenuItemClick(object sender, EventArgs e)
@@ -39,18 +38,13 @@ namespace CZServer
 		
 		void IniciarToolStripMenuItemClick(object sender, EventArgs e)
 		{			
-			if(objConsola == null){
-				objConsola = new frmConsola();
-				MessageBox.Show(objConsola.ToString());
+			if(objConsola == null || objConsola.IsDisposed){
+				objConsola = new frmConsola();				
 				objConsola.MdiParent = this;
 				objConsola.Show();
 			}
-			else
-			{
-				MessageBox.Show(objConsola.ToString());
-				objConsola.MdiParent = this;
-				objConsola.Show();
-			}
+			objConsola.MdiParent = this;
+			objConsola.Show();
 		}
 	}
 }

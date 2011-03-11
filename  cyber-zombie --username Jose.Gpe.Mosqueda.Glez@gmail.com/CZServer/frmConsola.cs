@@ -35,8 +35,8 @@ namespace CZServer
 		public void Iniciar()
 		{
 			MyIP = LocalIPAddress();      			
-				skt.Bind(new IPEndPoint(IPAddress.Any, 20145));
-				skt.SetSocketOption(SocketOptionLevel.Socket, SocketOptionName.Broadcast, true);
+			skt.Bind(new IPEndPoint(IPAddress.Any, 20145));
+			skt.SetSocketOption(SocketOptionLevel.Socket, SocketOptionName.Broadcast, true);
 			
 			trdRecibir = new Thread(RecibirDatos);
 			trdRecibir.Start();
@@ -115,7 +115,7 @@ namespace CZServer
 		
 		void FrmConsolaFormClosed(object sender, FormClosedEventArgs e)
 		{
-			//skt.Close();
+			skt.Close();
 			trdRecibir.Abort();
 			this.Dispose();
 		}
