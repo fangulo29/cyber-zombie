@@ -56,11 +56,11 @@ namespace CZServer
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BackColor = System.Drawing.Color.White;
 			this.ClientSize = new System.Drawing.Size(292, 273);
-			this.ControlBox = false;
 			this.Controls.Add(this.txtConsola);
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
 			this.Name = "frmConsola";
 			this.Text = "SktConsole";
+			this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FrmConsolaFormClosed);			
 			this.ResumeLayout(false);
 			this.PerformLayout();
 		}

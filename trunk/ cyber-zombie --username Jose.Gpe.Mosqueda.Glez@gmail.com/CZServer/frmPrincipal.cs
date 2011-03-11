@@ -11,22 +11,22 @@ using System.Drawing;
 using System.Windows.Forms;
 
 namespace CZServer
-{	
+{
 	public partial class frmPrincipal : Form
 	{
 		private Configuracion.frmTipos objTipos;
 		private Configuracion.frmEquipos objEquipos;
-		private frmConsola objConsola;
+		public frmConsola objConsola;
 		public frmPrincipal()
 		{
 			InitializeComponent();
 			objTipos = new CZServer.Configuracion.frmTipos();
 			objEquipos = new CZServer.Configuracion.frmEquipos();
-			objConsola = new frmConsola();
+			//objConsola = new frmConsola();
 		}
 		
 		void TiposToolStripMenuItemClick(object sender, EventArgs e)
-		{			
+		{
 			objTipos.MdiParent = this;
 			objTipos.Show();
 		}
@@ -38,17 +38,19 @@ namespace CZServer
 		}
 		
 		void IniciarToolStripMenuItemClick(object sender, EventArgs e)
-		{
-			try{
-				objConsola.Iniciar();
-			}
-			catch{
-				
+		{			
+			if(objConsola == null){
 				objConsola = new frmConsola();
-				objConsola.Iniciar();				
+				MessageBox.Show(objConsola.ToString());
+				objConsola.MdiParent = this;
+				objConsola.Show();
 			}
-			objConsola.MdiParent = this;
-			objConsola.Show();
+			else
+			{
+				MessageBox.Show(objConsola.ToString());
+				objConsola.MdiParent = this;
+				objConsola.Show();
+			}
 		}
 	}
 }

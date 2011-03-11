@@ -29,19 +29,22 @@ namespace CZServer
 		#endregion
 		public frmConsola()
 		{			
-			InitializeComponent();			
+			InitializeComponent();
+			Iniciar();
 		}
 		public void Iniciar()
 		{
-			MyIP = LocalIPAddress();          
-			skt.Bind(new IPEndPoint(IPAddress.Any, 20145));
-			skt.SetSocketOption(SocketOptionLevel.Socket, SocketOptionName.Broadcast, true);
+			MyIP = LocalIPAddress();      			
+				skt.Bind(new IPEndPoint(IPAddress.Any, 20145));
+				skt.SetSocketOption(SocketOptionLevel.Socket, SocketOptionName.Broadcast, true);
+			
 			trdRecibir = new Thread(RecibirDatos);
 			trdRecibir.Start();
 			EnviarDatos("CLIENTES",DireccionIP + "[ServerConectado]");
 		}	
 		public  void Parar()
 		{
+			skt.Close();
 			trdRecibir.Abort();
 			strConsola = string.Empty;
 		}
@@ -108,6 +111,13 @@ namespace CZServer
 			{
 				txtConsola.Text += "\r\n>" + ContenidoMensaje;
 			}
+		}
+		
+		void FrmConsolaFormClosed(object sender, FormClosedEventArgs e)
+		{
+			//skt.Close();
+			trdRecibir.Abort();
+			this.Dispose();
 		}
 	}
 }
