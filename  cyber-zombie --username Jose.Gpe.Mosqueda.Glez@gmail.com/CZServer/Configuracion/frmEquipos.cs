@@ -124,5 +124,47 @@ namespace CZServer.Configuracion
 				}
 			}
 		}
+		
+		void CmdGuardarClick(object sender, EventArgs e)
+		{
+			if(strEstatus=="Nuevo")
+			{
+				if(ValidarVacio(gbPrincipal,false))
+				{
+				   	ObtenerDatos();
+				   	if(objEquipos.Insertar()) MessageBox.Show("Se Guardó Correctamente El Registro");
+				   	else MessageBox.Show("No Se Guardó el Registro.");
+					ConfigurarBotonesInicial();
+				}
+				else MessageBox.Show("Faltan Campos Por Completar.");
+			}
+			else if(strEstatus == "Editar")
+			{
+				if(ValidarVacio(gbPrincipal,true))
+				{
+					ObtenerDatos();
+					if(objEquipos.Actualizar()) MessageBox.Show("Se Actualizó Correctamente el Registro.");
+					else MessageBox.Show("No Se Actualizó el Registro.");
+					ConfigurarBotonesInicial();
+				}
+			}	
+		}
+		
+		void CmdEliminarClick(object sender, EventArgs e)
+		{
+			if(txtID.Text.Length>0)
+			{
+				if(MessageBox.Show("¿Está Seguro Que Desea Eliminar El Registro?","Confirmación de Eliminación",MessageBoxButtons.YesNo) == DialogResult.Yes)
+				{
+					if(objEquipos.Eliminar(int.Parse(txtID.Text)))
+					{
+						MessageBox.Show("El Registro Se Eliminó Correctamente.");
+						ConfigurarBotonesInicial();
+						Limpiar(gbPrincipal);
+					}
+					else MessageBox.Show("No Se Pudo Eliminar El Registro.");
+				}
+			}
+		}
 	}
 }

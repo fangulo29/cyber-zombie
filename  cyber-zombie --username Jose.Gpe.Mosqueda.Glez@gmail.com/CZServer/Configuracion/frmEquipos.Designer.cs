@@ -79,10 +79,12 @@ namespace CZServer.Configuracion
 			// cmdEliminar
 			// 
 			this.cmdEliminar.Location = new System.Drawing.Point(176, 279);
+			this.cmdEliminar.Click += new System.EventHandler(this.CmdEliminarClick);
 			// 
 			// cmdGuardar
 			// 
 			this.cmdGuardar.Location = new System.Drawing.Point(135, 279);
+			this.cmdGuardar.Click += new System.EventHandler(this.CmdGuardarClick);
 			// 
 			// cmdEditar
 			// 
