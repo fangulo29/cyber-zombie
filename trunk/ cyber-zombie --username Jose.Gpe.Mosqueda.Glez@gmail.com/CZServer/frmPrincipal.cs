@@ -16,11 +16,13 @@ namespace CZServer
 	{
 		private Configuracion.frmTipos objTipos;
 		private Configuracion.frmEquipos objEquipos;
+		private frmConsola objConsola;
 		public frmPrincipal()
 		{
 			InitializeComponent();
 			objTipos = new CZServer.Configuracion.frmTipos();
 			objEquipos = new CZServer.Configuracion.frmEquipos();
+			objConsola = new frmConsola();
 		}
 		
 		void TiposToolStripMenuItemClick(object sender, EventArgs e)
@@ -33,6 +35,20 @@ namespace CZServer
 		{
 			objEquipos.MdiParent = this;
 			objEquipos.Show();
+		}
+		
+		void IniciarToolStripMenuItemClick(object sender, EventArgs e)
+		{
+			try{
+				objConsola.Iniciar();
+			}
+			catch{
+				
+				objConsola = new frmConsola();
+				objConsola.Iniciar();				
+			}
+			objConsola.MdiParent = this;
+			objConsola.Show();
 		}
 	}
 }

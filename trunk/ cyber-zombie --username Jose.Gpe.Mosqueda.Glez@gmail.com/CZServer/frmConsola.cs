@@ -1,12 +1,13 @@
 ﻿/*
  * Creado por SharpDevelop.
  * Usuario: Pepe
- * Fecha: 09/03/2011
- * Hora: 11:00 a.m.
+ * Fecha: 10/03/2011
+ * Hora: 06:20 p.m.
  * 
  * Para cambiar esta plantilla use Herramientas | Opciones | Codificación | Editar Encabezados Estándar
  */
 using System;
+using System.Drawing;
 using System.Windows.Forms;
 using System.Net;
 using System.Net.Sockets;
@@ -14,11 +15,8 @@ using System.Text;
 using System.Threading;
 
 namespace CZServer
-{
-	/// <summary>
-	/// Description of SktEngine.
-	/// </summary>
-	public class SktEngine
+{	
+	public partial class frmConsola : Form
 	{
 		#region "Variables"	
 			public Socket skt = new Socket(AddressFamily.InterNetwork,SocketType.Dgram, ProtocolType.Udp);
@@ -26,11 +24,14 @@ namespace CZServer
 			public bool Saliendo=false;
 			public string DireccionIP;
 			public string ContenidoMensaje;
+			public string strConsola;
+			public string MyIP;
 		#endregion
-        	#region "Constantes"
-            		public string MyIP;
-        	#endregion
-		public SktEngine()
+		public frmConsola()
+		{			
+			InitializeComponent();			
+		}
+		public void Iniciar()
 		{
 			MyIP = LocalIPAddress();          
 			skt.Bind(new IPEndPoint(IPAddress.Any, 20145));
@@ -38,6 +39,11 @@ namespace CZServer
 			trdRecibir = new Thread(RecibirDatos);
 			trdRecibir.Start();
 			EnviarDatos("CLIENTES",DireccionIP + "[ServerConectado]");
+		}	
+		public  void Parar()
+		{
+			trdRecibir.Abort();
+			strConsola = string.Empty;
 		}
 		private string LocalIPAddress()
 		{
@@ -89,7 +95,18 @@ namespace CZServer
 				LaIpRemota = (IPEndPoint)IPRecibida;
 				DireccionIP = LaIpRemota.Address.ToString();
 				ContenidoMensaje = Datos.ToString();
-				//txtConversacion.Invoke(new EventHandler(ActualizarTextoMensaje));
+				txtConsola.Invoke(new EventHandler(ActualizarConsola));
+			}
+		}
+		protected void ActualizarConsola(object sender, EventArgs e)
+		{
+			if(txtConsola.Text.Length==0)
+			{
+				txtConsola.Text = ">" +ContenidoMensaje;
+			}
+			else
+			{
+				txtConsola.Text += "\r\n>" + ContenidoMensaje;
 			}
 		}
 	}
