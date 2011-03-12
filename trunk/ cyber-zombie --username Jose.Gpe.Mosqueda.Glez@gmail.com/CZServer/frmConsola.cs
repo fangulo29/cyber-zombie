@@ -96,7 +96,7 @@ namespace CZServer
 					}
 				}
 				LaIpRemota = (IPEndPoint)IPRecibida;
-				DireccionIP = LaIpRemota.Address.ToString();
+				DireccionIP = "[" + LaIpRemota.Address.ToString() + "]";
 				ContenidoMensaje = Datos.ToString();
 				txtConsola.Invoke(new EventHandler(ActualizarConsola));
 			}
@@ -105,16 +105,16 @@ namespace CZServer
 		{
 			if(txtConsola.Text.Length==0)
 			{
-				txtConsola.Text = ">" +ContenidoMensaje;
+				txtConsola.Text = DireccionIP + ">" +ContenidoMensaje;
 			}
 			else
 			{
-				txtConsola.Text += "\r\n>" + ContenidoMensaje;
+				txtConsola.Text += DireccionIP + "\r\n>" + ContenidoMensaje;
 			}
 		}
-		
 		void FrmConsolaFormClosed(object sender, FormClosedEventArgs e)
 		{
+			EnviarDatos("CLIENTES",DireccionIP + "[ServerDesconectado]");
 			skt.Close();
 			trdRecibir.Abort();
 			this.Dispose();
