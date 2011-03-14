@@ -61,6 +61,10 @@ namespace CZServer
 			Iniciar();
 		}
 		
+		void SalirToolStripMenuItemClick(object sender, EventArgs e)
+		{
+			Parar();
+		}
 		#region "Consola del Socket"
 		public void Iniciar()
 		{
@@ -74,10 +78,10 @@ namespace CZServer
 		}	
 		public  void Parar()
 		{
-			EnviarDatos("CLIENTES",DireccionIP + "[ServerDesconectado]");
-			skt.Close();
-			trdRecibir.Abort();
-			strConsola = string.Empty;
+			EnviarDatos("CLIENTES",DireccionIP + "\n\r[ServerDesconectado]");			
+//			trdRecibir.Abort();
+//			skt.Close();
+//			strConsola = string.Empty;
 		}
 		public string LocalIPAddress()
 		{
