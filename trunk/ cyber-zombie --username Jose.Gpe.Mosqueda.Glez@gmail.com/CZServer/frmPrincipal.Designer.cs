@@ -107,7 +107,8 @@ namespace CZServer
 			// 
 			this.salirToolStripMenuItem.Name = "salirToolStripMenuItem";
 			this.salirToolStripMenuItem.Size = new System.Drawing.Size(129, 22);
-			this.salirToolStripMenuItem.Text = "Salir";
+			this.salirToolStripMenuItem.Text = "Parar";
+			this.salirToolStripMenuItem.Click += new System.EventHandler(this.SalirToolStripMenuItemClick);
 			// 
 			// visorDeSesionesToolStripMenuItem
 			// 
@@ -135,6 +136,7 @@ namespace CZServer
 			this.txtConsola.Location = new System.Drawing.Point(0, 27);
 			this.txtConsola.Multiline = true;
 			this.txtConsola.Name = "txtConsola";
+			this.txtConsola.ReadOnly = true;
 			this.txtConsola.Size = new System.Drawing.Size(792, 547);
 			this.txtConsola.TabIndex = 4;
 			// 
