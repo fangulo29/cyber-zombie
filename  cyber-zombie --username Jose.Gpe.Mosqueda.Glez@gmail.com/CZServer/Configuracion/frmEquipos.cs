@@ -37,7 +37,7 @@ namespace CZServer.Configuracion
 		}
 		
 		private void MostrarDatos(int ID)
-		{
+		{			
 			objEquipos.Buscar(ID);
 			txtID.Text = objEquipos.ID_EQUIPO.ToString();
 			objTipos.Buscar(objEquipos.ID_TIPO);
@@ -49,8 +49,8 @@ namespace CZServer.Configuracion
 		}
 		
 		void CmdRedClick(object sender, EventArgs e)
-		{
-			if(objBuscarEnRed == null)
+		{			
+			if(objBuscarEnRed == null || objBuscarEnRed.IsDisposed == true)
 			{
 				objBuscarEnRed = new frmBuscar("EquiposRed");
 				objBuscarEnRed.dgvBusqueda.DoubleClick += new EventHandler(SeleccionarEquiposRed);
