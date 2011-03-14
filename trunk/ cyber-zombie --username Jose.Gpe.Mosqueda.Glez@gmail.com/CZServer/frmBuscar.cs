@@ -24,33 +24,8 @@ namespace CZServer
 	public partial class frmBuscar : Form
 	{		
 		private List<Tipos> lstTipos;
-		private List<Equipos> lstEquipos;
-		
-        #region Dll imports
-		[DllImport("Netapi32", CharSet = CharSet.Auto, SetLastError = true),SuppressUnmanagedCodeSecurityAttribute]
-        public static extern int NetServerEnum(
-            string ServerNane, 
-            int dwLevel,
-            ref IntPtr pBuf,
-            int dwPrefMaxLen,
-            out int dwEntriesRead,
-            out int dwTotalEntries,
-            int dwServerType,
-            string domain, 
-            out int dwResumeHandle
-            );       
-        [DllImport("Netapi32", SetLastError = true),SuppressUnmanagedCodeSecurityAttribute]        
-        public static extern int NetApiBufferFree(
-            IntPtr pBuf);        
-        [StructLayout(LayoutKind.Sequential)]
-        public struct _SERVER_INFO_100
-        {
-            internal int sv100_platform_id;
-            [MarshalAs(UnmanagedType.LPWStr)]
-            internal string sv100_name;
-        }
-		#endregion
-        
+		private List<Equipos> lstEquipos;		
+	 
 		public frmBuscar(string Catalogo)
 		{			
 			InitializeComponent();			
@@ -91,6 +66,7 @@ namespace CZServer
                         		}
                         		break;
                         	case "EquiposRed":
+                        		
 	                       		break;
                         	default:
                         		break;

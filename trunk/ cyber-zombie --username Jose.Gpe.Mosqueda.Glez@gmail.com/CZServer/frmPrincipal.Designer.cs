@@ -46,6 +46,7 @@ namespace CZServer
 			this.visorDeSesionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.resumenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.consolaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.txtConsola = new System.Windows.Forms.TextBox();
 			this.menuStrip1.SuspendLayout();
 			this.SuspendLayout();
 			// 
@@ -98,39 +99,51 @@ namespace CZServer
 			// iniciarToolStripMenuItem
 			// 
 			this.iniciarToolStripMenuItem.Name = "iniciarToolStripMenuItem";
-			this.iniciarToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+			this.iniciarToolStripMenuItem.Size = new System.Drawing.Size(129, 22);
 			this.iniciarToolStripMenuItem.Text = "Iniciar";
 			this.iniciarToolStripMenuItem.Click += new System.EventHandler(this.IniciarToolStripMenuItemClick);
 			// 
 			// salirToolStripMenuItem
 			// 
 			this.salirToolStripMenuItem.Name = "salirToolStripMenuItem";
-			this.salirToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+			this.salirToolStripMenuItem.Size = new System.Drawing.Size(129, 22);
 			this.salirToolStripMenuItem.Text = "Salir";
 			// 
 			// visorDeSesionesToolStripMenuItem
 			// 
 			this.visorDeSesionesToolStripMenuItem.Name = "visorDeSesionesToolStripMenuItem";
-			this.visorDeSesionesToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+			this.visorDeSesionesToolStripMenuItem.Size = new System.Drawing.Size(129, 22);
 			this.visorDeSesionesToolStripMenuItem.Text = "Visor";
 			// 
 			// resumenToolStripMenuItem
 			// 
 			this.resumenToolStripMenuItem.Name = "resumenToolStripMenuItem";
-			this.resumenToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+			this.resumenToolStripMenuItem.Size = new System.Drawing.Size(129, 22);
 			this.resumenToolStripMenuItem.Text = "Resumen";
 			// 
 			// consolaToolStripMenuItem
 			// 
 			this.consolaToolStripMenuItem.Name = "consolaToolStripMenuItem";
-			this.consolaToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+			this.consolaToolStripMenuItem.Size = new System.Drawing.Size(129, 22);
 			this.consolaToolStripMenuItem.Text = "Consola";
+			// 
+			// txtConsola
+			// 
+			this.txtConsola.BackColor = System.Drawing.Color.Black;
+			this.txtConsola.BorderStyle = System.Windows.Forms.BorderStyle.None;
+			this.txtConsola.ForeColor = System.Drawing.Color.Lime;
+			this.txtConsola.Location = new System.Drawing.Point(0, 27);
+			this.txtConsola.Multiline = true;
+			this.txtConsola.Name = "txtConsola";
+			this.txtConsola.Size = new System.Drawing.Size(792, 547);
+			this.txtConsola.TabIndex = 4;
 			// 
 			// frmPrincipal
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(792, 573);
+			this.Controls.Add(this.txtConsola);
 			this.Controls.Add(this.menuStrip1);
 			this.IsMdiContainer = true;
 			this.MainMenuStrip = this.menuStrip1;
@@ -141,6 +154,7 @@ namespace CZServer
 			this.ResumeLayout(false);
 			this.PerformLayout();
 		}
+		public System.Windows.Forms.TextBox txtConsola;
 		private System.Windows.Forms.ToolStripMenuItem consolaToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem resumenToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem visorDeSesionesToolStripMenuItem;

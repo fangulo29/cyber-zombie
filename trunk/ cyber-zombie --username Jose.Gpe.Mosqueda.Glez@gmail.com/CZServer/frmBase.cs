@@ -97,9 +97,9 @@ namespace CZServer
 				
 		void CmdSalirClick(object sender, EventArgs e)
 		{	
-			ConfigurarBotonesInicial();
-			this.Hide();
+			ConfigurarBotonesInicial();			
 			strEstatus = "Inactivo";
+			this.Dispose();
 		}		
 		
 		void CmdCancelarClick(object sender, EventArgs e)
