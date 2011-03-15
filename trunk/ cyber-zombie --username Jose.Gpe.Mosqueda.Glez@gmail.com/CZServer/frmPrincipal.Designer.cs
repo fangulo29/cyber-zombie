@@ -42,11 +42,12 @@ namespace CZServer
 			this.equiposToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.sesionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.iniciarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.pararToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.visorDeSesionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.resumenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.consolaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.txtConsola = new System.Windows.Forms.TextBox();
+			this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.menuStrip1.SuspendLayout();
 			this.SuspendLayout();
 			// 
@@ -54,7 +55,8 @@ namespace CZServer
 			// 
 			this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
 									this.configuraciónToolStripMenuItem,
-									this.sesionesToolStripMenuItem});
+									this.sesionesToolStripMenuItem,
+									this.salirToolStripMenuItem});
 			this.menuStrip1.Location = new System.Drawing.Point(0, 0);
 			this.menuStrip1.Name = "menuStrip1";
 			this.menuStrip1.Size = new System.Drawing.Size(792, 24);
@@ -88,7 +90,7 @@ namespace CZServer
 			// 
 			this.sesionesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
 									this.iniciarToolStripMenuItem,
-									this.salirToolStripMenuItem,
+									this.pararToolStripMenuItem,
 									this.visorDeSesionesToolStripMenuItem,
 									this.resumenToolStripMenuItem,
 									this.consolaToolStripMenuItem});
@@ -103,12 +105,12 @@ namespace CZServer
 			this.iniciarToolStripMenuItem.Text = "Iniciar";
 			this.iniciarToolStripMenuItem.Click += new System.EventHandler(this.IniciarToolStripMenuItemClick);
 			// 
-			// salirToolStripMenuItem
+			// pararToolStripMenuItem
 			// 
-			this.salirToolStripMenuItem.Name = "salirToolStripMenuItem";
-			this.salirToolStripMenuItem.Size = new System.Drawing.Size(129, 22);
-			this.salirToolStripMenuItem.Text = "Parar";
-			this.salirToolStripMenuItem.Click += new System.EventHandler(this.SalirToolStripMenuItemClick);
+			this.pararToolStripMenuItem.Name = "pararToolStripMenuItem";
+			this.pararToolStripMenuItem.Size = new System.Drawing.Size(129, 22);
+			this.pararToolStripMenuItem.Text = "Parar";
+			this.pararToolStripMenuItem.Click += new System.EventHandler(this.PararToolStripMenuItemClick);
 			// 
 			// visorDeSesionesToolStripMenuItem
 			// 
@@ -140,27 +142,37 @@ namespace CZServer
 			this.txtConsola.Size = new System.Drawing.Size(792, 547);
 			this.txtConsola.TabIndex = 4;
 			// 
+			// salirToolStripMenuItem
+			// 
+			this.salirToolStripMenuItem.Name = "salirToolStripMenuItem";
+			this.salirToolStripMenuItem.Size = new System.Drawing.Size(39, 20);
+			this.salirToolStripMenuItem.Text = "Salir";
+			this.salirToolStripMenuItem.Click += new System.EventHandler(this.SalirToolStripMenuItemClick);
+			// 
 			// frmPrincipal
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(792, 573);
+			this.ControlBox = false;
 			this.Controls.Add(this.txtConsola);
 			this.Controls.Add(this.menuStrip1);
+			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
 			this.IsMdiContainer = true;
 			this.MainMenuStrip = this.menuStrip1;
 			this.Name = "frmPrincipal";
-			this.Text = "frmPrincipal";
+			this.Text = "CZ Server";
 			this.menuStrip1.ResumeLayout(false);
 			this.menuStrip1.PerformLayout();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 		}
+		private System.Windows.Forms.ToolStripMenuItem salirToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem pararToolStripMenuItem;
 		public System.Windows.Forms.TextBox txtConsola;
 		private System.Windows.Forms.ToolStripMenuItem consolaToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem resumenToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem visorDeSesionesToolStripMenuItem;
-		private System.Windows.Forms.ToolStripMenuItem salirToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem iniciarToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem sesionesToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem tiposToolStripMenuItem;
