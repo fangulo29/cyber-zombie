@@ -19,7 +19,7 @@ namespace CZServer
 	public partial class frmPrincipal : Form
 	{
 		#region "Variables para Sockets"	
-			public Socket skt = new Socket(AddressFamily.InterNetwork,SocketType.Dgram, ProtocolType.Udp);
+			public Socket skt;
 			public Thread trdRecibir;
 			public bool Saliendo=false;
 			public string DireccionIP;
@@ -33,7 +33,8 @@ namespace CZServer
 		#endregion
 		public frmPrincipal()
 		{
-			InitializeComponent();			
+			InitializeComponent();
+			pararToolStripMenuItem.Enabled = false;
 		}
 		
 		void TiposToolStripMenuItemClick(object sender, EventArgs e)
@@ -49,7 +50,7 @@ namespace CZServer
 		void EquiposToolStripMenuItemClick(object sender, EventArgs e)
 		{
 			if(objEquipos == null || objEquipos.IsDisposed)
-			{
+			{ 
 				objEquipos = new CZServer.Configuracion.frmEquipos();
 			}
 			objEquipos.MdiParent = this;
@@ -59,29 +60,35 @@ namespace CZServer
 		void IniciarToolStripMenuItemClick(object sender, EventArgs e)
 		{			
 			Iniciar();
+			iniciarToolStripMenuItem.Enabled = false;
+			pararToolStripMenuItem.Enabled = true;			
 		}
 		
-		void SalirToolStripMenuItemClick(object sender, EventArgs e)
+		void PararToolStripMenuItemClick(object sender, EventArgs e)
 		{
 			Parar();
+			iniciarToolStripMenuItem.Enabled = true;
+			pararToolStripMenuItem.Enabled = false;
 		}
 		#region "Consola del Socket"
 		public void Iniciar()
 		{
-			MyIP = LocalIPAddress();      			
+			MyIP = LocalIPAddress(); 		
+ 			skt = new Socket(AddressFamily.InterNetwork,SocketType.Dgram, ProtocolType.Udp);			
 			skt.Bind(new IPEndPoint(IPAddress.Any, 20145));
 			skt.SetSocketOption(SocketOptionLevel.Socket, SocketOptionName.Broadcast, true);
 			
 			trdRecibir = new Thread(RecibirDatos);
 			trdRecibir.Start();
-			EnviarDatos("CLIENTES",DireccionIP + "[ServerConectado]");
+			EnviarDatos("CLIENTES","[ServerConectado]");
 		}	
 		public  void Parar()
 		{
-			EnviarDatos("CLIENTES",DireccionIP + "\n\r[ServerDesconectado]");			
-//			trdRecibir.Abort();
-//			skt.Close();
-//			strConsola = string.Empty;
+			EnviarDatos("CLIENTES","[ServerDesconectado]");			
+			skt.Shutdown(SocketShutdown.Both);
+			skt.Close();
+			trdRecibir.Abort();
+			txtConsola.Text = string.Empty;
 		}
 		public string LocalIPAddress()
 		{
@@ -145,9 +152,14 @@ namespace CZServer
 			}
 			else
 			{
-				txtConsola.Text += DireccionIP + "\r\n>" + ContenidoMensaje;
+				txtConsola.Text += @"\n\r" + DireccionIP + ">" + ContenidoMensaje;
 			}
 		}		
 		#endregion
+		
+		void SalirToolStripMenuItemClick(object sender, EventArgs e)
+		{			
+			Application.Exit();
+		}
 	}
 }
