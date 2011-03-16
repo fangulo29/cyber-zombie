@@ -66,7 +66,7 @@ namespace CZServer
                         		}
                         		break;
                         	case "EquiposRed":
-                        		
+                        		((TextBox)frmPrincipal.ActiveForm.Controls["txtConsola"]).TextChanged += new EventHandler(OrdenConsola);
 	                       		break;
                         	default:
                         		break;
@@ -93,6 +93,11 @@ namespace CZServer
 					dgvBusqueda.Rows.Add(dgvContenido.Rows[i].Cells[0].Value.ToString(),dgvContenido.Rows[i].Cells[1].Value.ToString());
 				}
 			}
+		}
+		
+		void OrdenConsola(object sender,EventArgs e)
+		{
+			MessageBox.Show(((TextBox)sender).Text);
 		}
 	}
 }

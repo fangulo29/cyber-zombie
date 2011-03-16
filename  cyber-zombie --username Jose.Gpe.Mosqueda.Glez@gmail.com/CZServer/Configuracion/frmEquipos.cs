@@ -18,13 +18,13 @@ namespace CZServer.Configuracion
 		private Tipos objTipos;
 		private frmBuscar objBuscarEnRed;
 		private frmBuscar objBuscarTipos;
-		private frmBuscar objBuscarEquipos;
+		private frmBuscar objBuscarEquipos;		
 		
 		public frmEquipos()
 		{
 			InitializeComponent();
 			objEquipos = new Equipos();
-			objTipos = new Tipos();
+			objTipos = new Tipos();			
 		}
 		
 		private void ObtenerDatos()
