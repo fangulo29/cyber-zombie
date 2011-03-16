@@ -46,8 +46,8 @@ namespace CZServer
 			this.visorDeSesionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.resumenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.consolaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.txtConsola = new System.Windows.Forms.TextBox();
 			this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.txtConsola = new System.Windows.Forms.TextBox();
 			this.menuStrip1.SuspendLayout();
 			this.SuspendLayout();
 			// 
@@ -130,6 +130,13 @@ namespace CZServer
 			this.consolaToolStripMenuItem.Size = new System.Drawing.Size(129, 22);
 			this.consolaToolStripMenuItem.Text = "Consola";
 			// 
+			// salirToolStripMenuItem
+			// 
+			this.salirToolStripMenuItem.Name = "salirToolStripMenuItem";
+			this.salirToolStripMenuItem.Size = new System.Drawing.Size(39, 20);
+			this.salirToolStripMenuItem.Text = "Salir";
+			this.salirToolStripMenuItem.Click += new System.EventHandler(this.SalirToolStripMenuItemClick);
+			// 
 			// txtConsola
 			// 
 			this.txtConsola.BackColor = System.Drawing.Color.Black;
@@ -141,13 +148,7 @@ namespace CZServer
 			this.txtConsola.ReadOnly = true;
 			this.txtConsola.Size = new System.Drawing.Size(792, 547);
 			this.txtConsola.TabIndex = 4;
-			// 
-			// salirToolStripMenuItem
-			// 
-			this.salirToolStripMenuItem.Name = "salirToolStripMenuItem";
-			this.salirToolStripMenuItem.Size = new System.Drawing.Size(39, 20);
-			this.salirToolStripMenuItem.Text = "Salir";
-			this.salirToolStripMenuItem.Click += new System.EventHandler(this.SalirToolStripMenuItemClick);
+			this.txtConsola.Visible = false;
 			// 
 			// frmPrincipal
 			// 
