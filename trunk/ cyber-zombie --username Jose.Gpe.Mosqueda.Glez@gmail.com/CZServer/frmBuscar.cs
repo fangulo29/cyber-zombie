@@ -65,7 +65,8 @@ namespace CZServer
                         			dgvContenido.Rows.Add(lstTipos[i].ID_TIPO,lstTipos[i].NOMBRE_TIPO);						
                         		}
                         		break;
-                        	case "EquiposRed":
+                        	case "EquiposRed":  
+                        		((frmPrincipal)frmPrincipal.ActiveForm).EnviarDatos("CLIENTES","[ListarEquipos]");
                         		((TextBox)frmPrincipal.ActiveForm.Controls["txtConsola"]).TextChanged += new EventHandler(OrdenConsola);
 	                       		break;
                         	default:
