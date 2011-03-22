@@ -187,6 +187,30 @@ namespace CZServer
 				if (Conexion.State == System.Data.ConnectionState.Open) Conexion.Close();
 			}
 		}
+		public void BuscarXIP(int IP)
+		{
+			strConsulta = "CALL Buscar_EquipoXIP('"+IP+"');";
+			Conexion.Open();
+			try
+			{
+				Comando = new MySqlCommand(strConsulta, Conexion);
+				Lector = Comando.ExecuteReader();
+				while (Lector.Read())
+				{
+					ID_EQUIPO = int.Parse(Lector[0].ToString());
+					ID_TIPO = int.Parse(Lector[1].ToString());
+					IP_EQUIPO = Lector[2].ToString();
+					NOMBRE_EQUIPO = Lector[3].ToString();
+					CARACTERISTICAS_EQUIPO = Lector[4].ToString();
+				}
+				Conexion.Close();
+			}
+			catch(MySqlException e)
+			{
+				MessageBox.Show("Error al realizar operación.\\n" + e.Number + "\\n" + e.Message + "\\n" + e.Source);
+				if (Conexion.State == System.Data.ConnectionState.Open) Conexion.Close();
+			}
+		}
 		public List<Equipos> Mostrar()
 		{
 			lstEquipos = new List<Equipos>();
