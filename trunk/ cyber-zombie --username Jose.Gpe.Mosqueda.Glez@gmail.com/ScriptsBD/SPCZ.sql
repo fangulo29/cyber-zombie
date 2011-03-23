@@ -30,6 +30,9 @@ SELECT * FROM Equipos;
 CREATE PROCEDURE Buscar_Equipo(Id INT)
 SELECT * FROM Equipos WHERE Id_Equipo=Id;
 
+CREATE PROCEDURE Buscar_EquipoXIP(IP VARCHAR(15))
+SELECT * FROM Equipos WHERE IP_Equipo=IP;
+
 CREATE PROCEDURE Ins_Sesion(Equipo INT,Fecha DATE,Inicio TIME,Fin TIME,Tot_Ses DECIMAL(6,2),Tot_SesImp DECIMAL(6,2),Total DECIMAL(6,2))
 INSERT INTO Sesiones VALUES(DEFAULT,Fecha,Inicio,Fin,Tot_Ses,Tot_SesImp,Total);
 

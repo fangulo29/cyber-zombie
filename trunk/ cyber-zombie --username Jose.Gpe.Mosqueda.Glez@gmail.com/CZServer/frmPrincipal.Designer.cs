@@ -47,7 +47,7 @@ namespace CZServer
 			this.resumenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.consolaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.txtConsola = new System.Windows.Forms.TextBox();
+			this.lstConsola = new System.Windows.Forms.ListBox();
 			this.menuStrip1.SuspendLayout();
 			this.SuspendLayout();
 			// 
@@ -137,18 +137,18 @@ namespace CZServer
 			this.salirToolStripMenuItem.Text = "Salir";
 			this.salirToolStripMenuItem.Click += new System.EventHandler(this.SalirToolStripMenuItemClick);
 			// 
-			// txtConsola
+			// lstConsola
 			// 
-			this.txtConsola.BackColor = System.Drawing.Color.Black;
-			this.txtConsola.BorderStyle = System.Windows.Forms.BorderStyle.None;
-			this.txtConsola.ForeColor = System.Drawing.Color.Lime;
-			this.txtConsola.Location = new System.Drawing.Point(0, 27);
-			this.txtConsola.Multiline = true;
-			this.txtConsola.Name = "txtConsola";
-			this.txtConsola.ReadOnly = true;
-			this.txtConsola.Size = new System.Drawing.Size(792, 547);
-			this.txtConsola.TabIndex = 4;
-			this.txtConsola.Visible = false;
+			this.lstConsola.BackColor = System.Drawing.Color.Black;
+			this.lstConsola.BorderStyle = System.Windows.Forms.BorderStyle.None;
+			this.lstConsola.Enabled = false;
+			this.lstConsola.ForeColor = System.Drawing.Color.Lime;
+			this.lstConsola.FormattingEnabled = true;
+			this.lstConsola.Location = new System.Drawing.Point(0, 27);
+			this.lstConsola.Name = "lstConsola";
+			this.lstConsola.Size = new System.Drawing.Size(792, 546);
+			this.lstConsola.TabIndex = 6;
+			this.lstConsola.Visible = false;
 			// 
 			// frmPrincipal
 			// 
@@ -156,8 +156,8 @@ namespace CZServer
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(792, 573);
 			this.ControlBox = false;
+			this.Controls.Add(this.lstConsola);
 			this.Controls.Add(this.menuStrip1);
-			this.Controls.Add(this.txtConsola);
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
 			this.IsMdiContainer = true;
 			this.MainMenuStrip = this.menuStrip1;
@@ -168,9 +168,9 @@ namespace CZServer
 			this.ResumeLayout(false);
 			this.PerformLayout();
 		}
+		public System.Windows.Forms.ListBox lstConsola;
 		private System.Windows.Forms.ToolStripMenuItem salirToolStripMenuItem;
-		private System.Windows.Forms.ToolStripMenuItem pararToolStripMenuItem;
-		public System.Windows.Forms.TextBox txtConsola;
+		private System.Windows.Forms.ToolStripMenuItem pararToolStripMenuItem;		
 		private System.Windows.Forms.ToolStripMenuItem consolaToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem resumenToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem visorDeSesionesToolStripMenuItem;
