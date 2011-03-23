@@ -66,8 +66,8 @@ namespace CZServer.Configuracion
 			{
 				if(objBuscarEnRed.dgvBusqueda.SelectedRows[0].Cells[0].Value.ToString().Length>0)
 				{
-					txtIP.Text = objBuscarEnRed.dgvBusqueda.SelectedRows[0].Cells[0].Value.ToString();
-					txtNombre.Text = objBuscarEnRed.dgvBusqueda.SelectedRows[0].Cells[1].Value.ToString();
+					((ListBox)frmPrincipal.ActiveForm.Controls["lstConsola"]).TextChanged += new EventHandler(OrdenConsola);					
+					((frmPrincipal)frmPrincipal.ActiveForm).EnviarDatos(objBuscarEnRed.dgvBusqueda.SelectedRows[0].Cells[0].Value.ToString(),"[MC]");					
 					objBuscarEnRed.Close();
 					objBuscarEnRed = null;
 				}
@@ -164,6 +164,31 @@ namespace CZServer.Configuracion
 					}
 					else MessageBox.Show("No Se Pudo Eliminar El Registro.");
 				}
+			}
+		}
+		
+		void OrdenConsola(object sender,EventArgs e)
+		{
+			string strCadena;
+			string strIPOrigen;
+			string strIPDestino;
+			string strTipo;
+			string strNombre;
+			string strCaracteristicas;
+			
+			ListBox lst = (ListBox)(sender);
+			strCadena = lst.Items[lst.Items.Count-1].ToString();
+			strIPOrigen = strCadena.Split('>')[0].ToString().Replace("[",string.Empty).Replace("]",string.Empty);
+			strIPDestino = strCadena.Split('>')[1].ToString().Replace("[",string.Empty).Replace("]",string.Empty);
+			strTipo = strCadena.Split('>')[2].ToString().Replace("[",string.Empty).Replace("]",string.Empty);
+			strNombre	 = strCadena.Split('>')[3].ToString().Replace("[",string.Empty).Replace("]",string.Empty);
+			strCaracteristicas = strCadena.Split('>')[4].ToString().Replace("[",string.Empty).Replace("]",string.Empty);
+			
+			if(strIPDestino.CompareTo("SERVER")== 0 && strTipo.CompareTo("CP")==0)
+			{
+				txtIP.Text = strIPOrigen;
+				txtNombre.Text = strNombre;
+				txtCaracteristicas.Text = strCaracteristicas;
 			}
 		}
 	}

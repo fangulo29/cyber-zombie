@@ -80,15 +80,15 @@ namespace CZServer
 			
 			trdRecibir = new Thread(RecibirDatos);
 			trdRecibir.Start();
-			EnviarDatos("CLIENTES","[ServerConectado]");
+			EnviarDatos("CLIENTES","[SC]");
 		}	
 		public  void Parar()
 		{
-			EnviarDatos("CLIENTES","[ServerDesconectado]");			
+			EnviarDatos("CLIENTES","[SD]");			
 			skt.Shutdown(SocketShutdown.Both);
 			skt.Close();
-			trdRecibir.Abort();
-			txtConsola.Text = string.Empty;
+			trdRecibir.Abort();			
+			lstConsola.Items.Clear();
 		}
 		public string LocalIPAddress()
 		{
@@ -140,20 +140,13 @@ namespace CZServer
 				LaIpRemota = (IPEndPoint)IPRecibida;
 				DireccionIP = "[" + LaIpRemota.Address.ToString() + "]";
 				ContenidoMensaje = Datos.ToString();
-				
-				txtConsola.Invoke(new EventHandler(ActualizarConsola));
+								
+				lstConsola.Invoke(new EventHandler(ActualizarConsola));
 			}
 		}
 		public void ActualizarConsola(object sender, EventArgs e)
 		{
-			if(txtConsola.Text.Length==0)
-			{
-				txtConsola.Text = DireccionIP + ">" +ContenidoMensaje;
-			}
-			else
-			{
-				txtConsola.Text += @"\n\r" + DireccionIP + ">" + ContenidoMensaje;
-			}
+			lstConsola.Items.Add(DireccionIP + ">" + ContenidoMensaje);
 		}		
 		#endregion
 		

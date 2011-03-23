@@ -65,9 +65,9 @@ namespace CZServer
                         			dgvContenido.Rows.Add(lstTipos[i].ID_TIPO,lstTipos[i].NOMBRE_TIPO);						
                         		}
                         		break;
-                        	case "EquiposRed":  
-                        		((frmPrincipal)frmPrincipal.ActiveForm).EnviarDatos("CLIENTES","[ListarEquipos]");
-                        		((TextBox)frmPrincipal.ActiveForm.Controls["txtConsola"]).TextChanged += new EventHandler(OrdenConsola);
+                        	case "EquiposRed":                          		
+                        		((ListBox)frmPrincipal.ActiveForm.Controls["lstConsola"]).TextChanged += new EventHandler(OrdenConsola);
+                        		((frmPrincipal)frmPrincipal.ActiveForm).EnviarDatos("CLIENTES","[LE]");
 	                       		break;
                         	default:
                         		break;
@@ -97,8 +97,35 @@ namespace CZServer
 		}
 		
 		void OrdenConsola(object sender,EventArgs e)
+		{			
+			string strCadena;
+			string strIPOrigen;
+			string strIPDestino;
+			string strTipo;
+			string strNombre;
+			
+			ListBox lst = (ListBox)(sender);
+			strCadena = lst.Items[lst.Items.Count-1].ToString();
+			strIPOrigen = strCadena.Split('>')[0].ToString().Replace("[",string.Empty).Replace("]",string.Empty);
+			strIPDestino = strCadena.Split('>')[1].ToString().Replace("[",string.Empty).Replace("]",string.Empty);
+			strTipo = strCadena.Split('>')[2].ToString().Replace("[",string.Empty).Replace("]",string.Empty);
+			strNombre	 = strCadena.Split('>')[3].ToString().Replace("[",string.Empty).Replace("]",string.Empty);
+			
+			if(strIPDestino.CompareTo("SERVER")== 0 && strTipo.CompareTo("CP")==0)
+			{
+				if(!Repetidos(strIPOrigen))
+					dgvBusqueda.Rows.Add(strIPOrigen,strNombre);
+			}
+		}
+		
+		private bool Repetidos(string str)
 		{
-			MessageBox.Show(((TextBox)sender).Text);
+			bool repetido = false;
+			for (int i=0;i<dgvBusqueda.Rows.Count;i++)
+			{
+				if(dgvBusqueda.Rows[i].Cells[0].Value.ToString().CompareTo(str)== 0) repetido=true;
+			}
+			return repetido;
 		}
 	}
 }
