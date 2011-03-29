@@ -29,7 +29,8 @@ namespace CZServer
 		#endregion
 		# region "Variables Generales"
 			private Configuracion.frmTipos objTipos;
-			private Configuracion.frmEquipos objEquipos;			
+			private Configuracion.frmEquipos objEquipos;	
+			private Sesion.frmVisor objVisor;
 		#endregion
 		public frmPrincipal()
 		{
@@ -65,7 +66,8 @@ namespace CZServer
 		}
 		
 		void PararToolStripMenuItemClick(object sender, EventArgs e)
-		{
+		{			
+			
 			Parar();
 			iniciarToolStripMenuItem.Enabled = true;
 			pararToolStripMenuItem.Enabled = false;
@@ -73,6 +75,13 @@ namespace CZServer
 		#region "Consola del Socket"
 		public void Iniciar()
 		{
+			if(objVisor == null || objVisor.IsDisposed)
+			{
+				objVisor = new CZServer.Sesion.frmVisor();
+			}
+			objVisor.MdiParent = this;
+			objVisor.Show();
+			
 			MyIP = LocalIPAddress(); 		
  			skt = new Socket(AddressFamily.InterNetwork,SocketType.Dgram, ProtocolType.Udp);			
 			skt.Bind(new IPEndPoint(IPAddress.Any, 20145));
@@ -83,7 +92,7 @@ namespace CZServer
 			EnviarDatos("CLIENTES","[SC]");
 		}	
 		public  void Parar()
-		{
+		{			
 			EnviarDatos("CLIENTES","[SD]");			
 			skt.Shutdown(SocketShutdown.Both);
 			skt.Close();

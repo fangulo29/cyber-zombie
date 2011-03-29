@@ -43,7 +43,6 @@ namespace CZServer
 			this.sesionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.iniciarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.pararToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.visorDeSesionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.resumenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.consolaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -91,7 +90,6 @@ namespace CZServer
 			this.sesionesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
 									this.iniciarToolStripMenuItem,
 									this.pararToolStripMenuItem,
-									this.visorDeSesionesToolStripMenuItem,
 									this.resumenToolStripMenuItem,
 									this.consolaToolStripMenuItem});
 			this.sesionesToolStripMenuItem.Name = "sesionesToolStripMenuItem";
@@ -101,33 +99,27 @@ namespace CZServer
 			// iniciarToolStripMenuItem
 			// 
 			this.iniciarToolStripMenuItem.Name = "iniciarToolStripMenuItem";
-			this.iniciarToolStripMenuItem.Size = new System.Drawing.Size(129, 22);
+			this.iniciarToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
 			this.iniciarToolStripMenuItem.Text = "Iniciar";
 			this.iniciarToolStripMenuItem.Click += new System.EventHandler(this.IniciarToolStripMenuItemClick);
 			// 
 			// pararToolStripMenuItem
 			// 
 			this.pararToolStripMenuItem.Name = "pararToolStripMenuItem";
-			this.pararToolStripMenuItem.Size = new System.Drawing.Size(129, 22);
+			this.pararToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
 			this.pararToolStripMenuItem.Text = "Parar";
 			this.pararToolStripMenuItem.Click += new System.EventHandler(this.PararToolStripMenuItemClick);
-			// 
-			// visorDeSesionesToolStripMenuItem
-			// 
-			this.visorDeSesionesToolStripMenuItem.Name = "visorDeSesionesToolStripMenuItem";
-			this.visorDeSesionesToolStripMenuItem.Size = new System.Drawing.Size(129, 22);
-			this.visorDeSesionesToolStripMenuItem.Text = "Visor";
 			// 
 			// resumenToolStripMenuItem
 			// 
 			this.resumenToolStripMenuItem.Name = "resumenToolStripMenuItem";
-			this.resumenToolStripMenuItem.Size = new System.Drawing.Size(129, 22);
+			this.resumenToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
 			this.resumenToolStripMenuItem.Text = "Resumen";
 			// 
 			// consolaToolStripMenuItem
 			// 
 			this.consolaToolStripMenuItem.Name = "consolaToolStripMenuItem";
-			this.consolaToolStripMenuItem.Size = new System.Drawing.Size(129, 22);
+			this.consolaToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
 			this.consolaToolStripMenuItem.Text = "Consola";
 			// 
 			// salirToolStripMenuItem
@@ -170,11 +162,10 @@ namespace CZServer
 		}
 		public System.Windows.Forms.ListBox lstConsola;
 		private System.Windows.Forms.ToolStripMenuItem salirToolStripMenuItem;
-		private System.Windows.Forms.ToolStripMenuItem pararToolStripMenuItem;		
+		public System.Windows.Forms.ToolStripMenuItem pararToolStripMenuItem;		
 		private System.Windows.Forms.ToolStripMenuItem consolaToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem resumenToolStripMenuItem;
-		private System.Windows.Forms.ToolStripMenuItem visorDeSesionesToolStripMenuItem;
-		private System.Windows.Forms.ToolStripMenuItem iniciarToolStripMenuItem;
+		public System.Windows.Forms.ToolStripMenuItem iniciarToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem sesionesToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem tiposToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem equiposToolStripMenuItem;
