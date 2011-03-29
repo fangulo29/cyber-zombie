@@ -24,3 +24,4 @@ C:\Documents and Settings\Pepe\Mis documentos\Visual Studio 2010\Projects\CZServ
 C:\Documents and Settings\Pepe\Mis documentos\Visual Studio 2010\Projects\CZServer\CZServer\obj\x86\Debug\CZServer.exe
 C:\Documents and Settings\Pepe\Mis documentos\Visual Studio 2010\Projects\CZServer\CZServer\obj\x86\Debug\CZServer.pdb
 C:\Documents and Settings\Pepe\Mis documentos\Visual Studio 2010\Projects\CZServer\CZServer\bin\Debug\CZServer.pdb
+C:\Documents and Settings\Pepe\Mis documentos\Visual Studio 2010\Projects\CZServer\CZServer\obj\x86\Debug\CZServer.Sesion.frmVisor.resources

@@ -40,7 +40,7 @@ namespace CZServer
                         Columna.HeaderText = "ID";
                         dgvContenido.Columns.Add(Columna);
                         Columna = new DataGridViewColumn(new DataGridViewTextBoxCell());
-                        Columna.HeaderText = "ID";                        
+                        Columna.HeaderText = "ID";
                         dgvBusqueda.Columns.Add(Columna);
 			Columna = new DataGridViewColumn(new DataGridViewTextBoxCell());
                         Columna.HeaderText = "Descripción";
