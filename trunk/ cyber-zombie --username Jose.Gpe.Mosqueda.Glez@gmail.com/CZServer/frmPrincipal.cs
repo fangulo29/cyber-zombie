@@ -153,6 +153,6 @@ namespace CZServer
 		void SalirToolStripMenuItemClick(object sender, EventArgs e)
 		{			
 			Application.Exit();
-		}
+		}		
 	}
 }
