@@ -157,8 +157,7 @@ namespace CZServer
 		{
 			lstConsola.Items.Add(DireccionIP + ">" + ContenidoMensaje);
 		}		
-		#endregion
-		
+		#endregion		
 		void SalirToolStripMenuItemClick(object sender, EventArgs e)
 		{			
 			Application.Exit();
