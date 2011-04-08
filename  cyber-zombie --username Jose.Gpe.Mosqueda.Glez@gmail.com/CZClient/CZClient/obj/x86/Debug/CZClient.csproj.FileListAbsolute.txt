@@ -1,0 +1,8 @@
+C:\Documents and Settings\Pepe\Mis documentos\SharpDevelop Projects\CZClient\CZClient\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Documents and Settings\Pepe\Mis documentos\SharpDevelop Projects\CZClient\CZClient\obj\x86\Debug\CZClient.frmPrincipal.resources
+C:\Documents and Settings\Pepe\Mis documentos\SharpDevelop Projects\CZClient\CZClient\obj\x86\Debug\GenerateResource.read.1.tlog
+C:\Documents and Settings\Pepe\Mis documentos\SharpDevelop Projects\CZClient\CZClient\obj\x86\Debug\GenerateResource.write.1.tlog
+C:\Documents and Settings\Pepe\Mis documentos\SharpDevelop Projects\CZClient\CZClient\bin\Debug\CZClient.exe
+C:\Documents and Settings\Pepe\Mis documentos\SharpDevelop Projects\CZClient\CZClient\bin\Debug\CZClient.pdb
+C:\Documents and Settings\Pepe\Mis documentos\SharpDevelop Projects\CZClient\CZClient\obj\x86\Debug\CZClient.exe
+C:\Documents and Settings\Pepe\Mis documentos\SharpDevelop Projects\CZClient\CZClient\obj\x86\Debug\CZClient.pdb
