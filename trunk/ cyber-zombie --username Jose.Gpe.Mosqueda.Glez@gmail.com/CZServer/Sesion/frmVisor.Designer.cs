@@ -49,12 +49,12 @@ namespace CZServer.Sesion
 			this.dgvSesiones.AllowUserToAddRows = false;
 			this.dgvSesiones.AllowUserToDeleteRows = false;
 			this.dgvSesiones.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-			this.dgvSesiones.Location = new System.Drawing.Point(12, 66);
+			this.dgvSesiones.Location = new System.Drawing.Point(12, 50);
 			this.dgvSesiones.MultiSelect = false;
 			this.dgvSesiones.Name = "dgvSesiones";
 			this.dgvSesiones.ReadOnly = true;
 			this.dgvSesiones.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-			this.dgvSesiones.Size = new System.Drawing.Size(568, 215);
+			this.dgvSesiones.Size = new System.Drawing.Size(568, 311);
 			this.dgvSesiones.TabIndex = 0;
 			// 
 			// cmdSesionInd

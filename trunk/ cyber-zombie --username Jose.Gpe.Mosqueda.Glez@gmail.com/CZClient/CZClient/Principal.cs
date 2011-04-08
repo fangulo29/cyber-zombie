@@ -1,8 +1,8 @@
 ﻿/*
  * Creado por SharpDevelop.
  * Usuario: Pepe
- * Fecha: 02/03/2011
- * Hora: 04:27 p.m.
+ * Fecha: 29/03/2011
+ * Hora: 05:49 p.m.
  * 
  * Para cambiar esta plantilla use Herramientas | Opciones | Codificación | Editar Encabezados Estándar
  */
@@ -14,8 +14,8 @@ using System.Net.Sockets;
 using System.Text;
 using System.Threading;
 
-namespace CZServer
-{
+namespace CZClient
+{	
 	public partial class frmPrincipal : Form
 	{
 		#region "Variables para Sockets"	
@@ -27,61 +27,14 @@ namespace CZServer
 			public string strConsola;
 			public string MyIP;
 		#endregion
-		# region "Variables Generales"
-			private Configuracion.frmTipos objTipos;
-			private Configuracion.frmEquipos objEquipos;	
-			private Sesion.frmVisor objVisor;
-		#endregion
 		public frmPrincipal()
-		{
-			InitializeComponent();
-			pararToolStripMenuItem.Enabled = false;
-		}
-		
-		void TiposToolStripMenuItemClick(object sender, EventArgs e)
-		{
-			if(objTipos == null || objTipos.IsDisposed)
-			{
-				objTipos = new CZServer.Configuracion.frmTipos();				
-			}
-			objTipos.MdiParent = this;
-			objTipos.Show();
-		}
-		
-		void EquiposToolStripMenuItemClick(object sender, EventArgs e)
-		{
-			if(objEquipos == null || objEquipos.IsDisposed)
-			{ 
-				objEquipos = new CZServer.Configuracion.frmEquipos();
-			}
-			objEquipos.MdiParent = this;
-			objEquipos.Show();
-		}
-		
-		void IniciarToolStripMenuItemClick(object sender, EventArgs e)
 		{			
+			InitializeComponent();			
 			Iniciar();
-			iniciarToolStripMenuItem.Enabled = false;
-			pararToolStripMenuItem.Enabled = true;			
-		}
-		
-		void PararToolStripMenuItemClick(object sender, EventArgs e)
-		{			
-			
-			Parar();
-			iniciarToolStripMenuItem.Enabled = true;
-			pararToolStripMenuItem.Enabled = false;
 		}
 		#region "Consola del Socket"
 		public void Iniciar()
-		{
-			if(objVisor == null || objVisor.IsDisposed)
-			{
-				objVisor = new CZServer.Sesion.frmVisor();
-			}
-			objVisor.MdiParent = this;
-			objVisor.Show();
-			
+		{			
 			MyIP = LocalIPAddress(); 		
  			skt = new Socket(AddressFamily.InterNetwork,SocketType.Dgram, ProtocolType.Udp);			
 			skt.Bind(new IPEndPoint(IPAddress.Any, 20145));
@@ -89,11 +42,11 @@ namespace CZServer
 			
 			trdRecibir = new Thread(RecibirDatos);
 			trdRecibir.Start();
-			EnviarDatos("CLIENTES","[SC]");
+			EnviarDatos("SERVIDOR","[CC]");
 		}	
 		public  void Parar()
 		{			
-			EnviarDatos("CLIENTES","[SD]");			
+			EnviarDatos("SERVIDOR","[CD]");			
 			skt.Shutdown(SocketShutdown.Both);
 			skt.Close();
 			trdRecibir.Abort();			
@@ -102,22 +55,21 @@ namespace CZServer
 		public string LocalIPAddress()
 		{
 			IPHostEntry host;
-			//string localIP = "";
+			string localIP = "";
 			host = Dns.GetHostEntry(Dns.GetHostName());
-			//localIP = host.AddressList[0].ToString();
-//			foreach (IPAddress ip in host.AddressList)
-//			{
-//				if (ip.AddressFamily.ToString() == "InterNetwork")
-//				{
-//					localIP = ip.ToString();
-//				}
-//			}
-			return host.AddressList[0].ToString();
+			foreach (IPAddress ip in host.AddressList)
+			{
+				if (ip.AddressFamily.ToString() == "InterNetwork")
+				{
+					localIP = ip.ToString();
+				}
+			}
+			return localIP;
 		}
 		public void EnviarDatos(string strIP,string strTexto)
 		{
 			IPEndPoint DireccionDestino;
-			if(strIP == "CLIENTES")
+			if(strIP == "SERVIDOR")
 				DireccionDestino = new IPEndPoint(IPAddress.Broadcast,20145);
 			else
 				DireccionDestino = new IPEndPoint(IPAddress.Parse(strIP),20145);
@@ -159,9 +111,10 @@ namespace CZServer
 			lstConsola.Items.Add(DireccionIP + ">" + ContenidoMensaje);
 		}		
 		#endregion		
-		void SalirToolStripMenuItemClick(object sender, EventArgs e)
-		{			
-			Application.Exit();
-		}		
+		
+		void LstConsolaSelectedIndexChanged(object sender, EventArgs e)
+		{
+			
+		}
 	}
 }
