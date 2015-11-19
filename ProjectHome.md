@@ -1,0 +1,2 @@
+Utilización de un servidor para hacer pase de lista a los equipos existentes que tengan aplicación cliente instalada.
+La aplicación servidor controlara el tiempo de las sesiones y las impresiones realizadas en cada uno de los equipos.
